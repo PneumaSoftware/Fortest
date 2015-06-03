@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrixMvc", "OrixMvc\OrixMvc.csproj", "{A87E4E00-FFAF-4544-8B31-23180F4CFFB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrixModel", "OrixMvc\OrixModel\OrixModel.csproj", "{16C16390-DD79-4C54-8BA5-FF05FF02920C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4C985DAC-80C9-4076-8281-3DC8847D6905}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrixOtcModel", "OrixMvc\OrixOtcModel\OrixOtcModel.csproj", "{F4B80DCB-5FD9-40D4-8493-029AD96BC7B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VS2008.Module", "OrixMvc\VS2008.Module\VS2008.Module.csproj", "{85B0C457-CF13-4AD4-B53E-FED28AF7460C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1E23F97F-753E-4910-8EB2-4FFF4D4D43F6}"
+	ProjectSection(SolutionItems) = preProject
+		log4net.config = log4net.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A87E4E00-FFAF-4544-8B31-23180F4CFFB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A87E4E00-FFAF-4544-8B31-23180F4CFFB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A87E4E00-FFAF-4544-8B31-23180F4CFFB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A87E4E00-FFAF-4544-8B31-23180F4CFFB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16C16390-DD79-4C54-8BA5-FF05FF02920C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16C16390-DD79-4C54-8BA5-FF05FF02920C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16C16390-DD79-4C54-8BA5-FF05FF02920C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16C16390-DD79-4C54-8BA5-FF05FF02920C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4B80DCB-5FD9-40D4-8493-029AD96BC7B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4B80DCB-5FD9-40D4-8493-029AD96BC7B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4B80DCB-5FD9-40D4-8493-029AD96BC7B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4B80DCB-5FD9-40D4-8493-029AD96BC7B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85B0C457-CF13-4AD4-B53E-FED28AF7460C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85B0C457-CF13-4AD4-B53E-FED28AF7460C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85B0C457-CF13-4AD4-B53E-FED28AF7460C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85B0C457-CF13-4AD4-B53E-FED28AF7460C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

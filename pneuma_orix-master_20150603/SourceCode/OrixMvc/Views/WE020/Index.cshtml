@@ -1,0 +1,575 @@
+﻿@using PagedList.Mvc;
+@model OrixMvc.ViewModels.WE020VO
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    @Styles.Render("~/Content/content")
+    @Styles.Render("~/Content/easyui")
+    @Scripts.Render("~/bundles/jquery-1.7.1")
+    @Scripts.Render("~/bundles/easyui")
+    <style>
+        .spandate .combo-arrow {
+            width: 17px;
+            height: 17px;
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: top;
+            cursor: pointer;
+            opacity: 0.6;
+            background: url('../jquery/style/images/searchbox_button.png') no-repeat center center;
+        }
+    </style>
+    <title>客戶綜合服務</title>
+</head>
+<body>
+    <div id="searchArea">
+        <table cellpadding="2" cellspacing="2">
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <th>申請書編號：</th>
+                            <td><input type="Text" id="APLY_NO" maxlength="17" style="width: 247px;" value='@((Model!=null)?Model.APLY_NO:"")'></input> </td>
+                            <th>連絡人：</th>
+                            <td><input type="text" id="PCONTACT" size="12" style="width: 268px;" value='@((Model != null) ? Model.PCONTACT : "")'></input></td>
+                        </tr>
+                        <tr>
+                            <th>客戶代號：</th>
+                            <td>
+                                <input type="text" id="PCUST_NO" maxlength="20" width="100" value='@((Model != null) ? @Model.PCUST_NO : "")'></input>
+                                @if(Model != null){
+                                    @Html.CheckBox("PIS_SEARCH",(Model.PIS_SEARCH == "Y"))
+                                    @Html.Label("搜尋共同承租人")
+                                    
+                                }
+                                else
+                                {
+                                    @Html.CheckBox("PIS_SEARCH")
+                                    @Html.Label("搜尋共同承租人")
+                                }
+                            </td>
+                            <th>客戶名稱：</th>
+                            <td><input type="text" id="PCUST_NAME" maxlength="80" width="300" style="width: 268px;" value='@((Model != null) ? @Model.PCUST_NAME:"")'></input> </td>
+
+                        </tr>
+                        <tr>
+                            <th>經銷商代碼：</th>
+                            <td><input type="text" id="FRC_CODE" maxlength="20" width="100" style="width: 247px;" value='@((Model != null) ? @Model.FRC_CODE:"")'></input> </td>
+                            <th>經銷商名稱：</th>
+                            <td><input type="text" id="FRC_NAME" size="20" width="300" style="width: 268px;" value='' value='@((Model != null) ? @Model.FRC_NAME:"")'></input></td>
+                        </tr>
+                        <tr>
+                            <th>連絡電話：</th>
+                            <td><input type="text" id="PCTAC_TEL" size="25" style="width: 247px;" value='@((Model != null) ? @Model.PCTAC_TEL:"")'></input></td>
+                            <th>收件人：</th>
+                            <td><input type="text" id="PRECV_NAME" size="12" style="width: 268px;" value='@((Model != null) ? @Model.PRECV_NAME:"")'></input></td>
+                        </tr>
+                        <tr>
+                            <th>存放地址：</th>
+                            <td colspan="3"><input type="text" id="PSEND_ADDR" size="40" value='@((Model != null) ? @Model.PSEND_ADDR:"")' style="width: 598px;"></input></td>
+                        </tr>
+                        <tr>
+                            <th>請款地址：</th>
+                            <td colspan="3"><input type="text" id="PADDR" size="40" value='@((Model != null) ? @Model.PADDR:"")' style="width: 598px;"></input></td>
+                        </tr>
+                        <tr>
+                            <th>品名：</th>
+                            <td ><input type="text" id="PPROD_NAME" size="30" style="width: 248px;" value='@((Model != null) ? @Model.PPROD_NAME:"")'></input></td>
+                            <th>車號：</th>
+                            <td colspan="2"><input type="text" id="CAR_NO" size="30" style="width: 268px;" value='@((Model != null) ? @Model.PCAR_NO : "")'></input></td>
+                        </tr>
+                        <tr>
+                            <th>機號：</th>
+                            <td><input type="text" id="PMAC_NO" size="10" style="width: 247px;" value='@((Model != null) ? @Model.MAC_NO:"")'></input></td>
+                            <th>申請日期：</th>
+                            <td >
+                                <div class="xdate" style="float:left">
+                                    <input id="PAPLY_DATE_S" type="text" class="easyui-datebox"  value='@((Model != null) ? @Model.PAPLY_DATE_S:"")' style=" width 120px;"></input>
+                                </div>
+                                <div style="float:left">~</div> 
+                                <div class="xdate" style="float:left">
+                                    <input type="text" id="PAPLY_DATE_E" class="easyui-datebox" value='@((Model != null) ? @Model.PAPLY_DATE_E:"")' style="width: 128px;"></input>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>契約狀態：</th>
+                            <td>@Html.DropDownList("PCUR_STS")
+                                @if(Model != null){
+                                    @Html.CheckBox("PIS_DEL", (Model.PIS_DEL == "Y"))
+                                    @Html.Label("含作廢駁回")
+                                }
+                                else
+                                {
+                                    @Html.CheckBox("PIS_DEL")
+                                    @Html.Label("含作廢駁回")
+                                }
+                            </td>
+                            <th>部門：</th>
+                            <td colspan="2">
+                                <span class="sdialog">
+                                    <span class="spandate">
+                                        <input type="text" id="DEPTtxtDialog" style="width: 255px; border: none" value='@((Model != null) ? @Model.PDEPT_CODE:"")'></input>
+                                        <span class="combo" style="width:20px">
+                                            <span>
+                                                <span class="combo-arrow" id="DEPT" style="width:20px;height:20px;cursor:pointer;" onclick="DEPT_init();this.parentNode.parentNode.style.display='none';$('#DEPTval').combogrid('showPanel');">
+                                                </span>
+                                            </span>
+                                        </span>
+                                        <input type="text" id="DEPTval" name="DEPTval" style="width:18px;height:20px;display:none" data-options="onShowPanel:DEPTonShow,onBeforeLoad:DEPTonLoad,onLoadSuccess:DEPTonChange,onSelect:DEPTonSelect" />
+                                    </span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>案件來源：</th>
+                            <td>
+                                @Html.DropDownList("PCASE_SOUR")
+                            </td>
+                            <th>業務員：</th>
+                            <td>
+                                <span class="sdialog">
+                                    <span class="spandate">
+                                        <input type="text" id="SALEStxtDialog" style="width: 255px; border: none" value='@((Model != null) ? @Model.PEMP_CODE:"")'></input>
+                                        <span class="combo" style="width:20px">
+                                            <span>
+                                                <span class="combo-arrow" id="SALES" style="width:20px;height:20px;cursor:pointer;" onclick="SALES_init();this.parentNode.parentNode.style.display='none';$('#SALESval').combogrid('showPanel');">
+                                                </span>
+                                            </span>
+                                        </span>
+                                        <input type="text" id="SALESval" name="SALESval" style="width:18px;height:20px;display:none" data-options="onShowPanel:SALESonShow,onBeforeLoad:SALESonLoad,onLoadSuccess:SALESonChange,onSelect:SALESonSelect" />
+                                    </span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>發票號碼：</th>
+                            <td colspan="3"><input type="text" id="PINV_NO" size="10" style="width: 598px;" value='@((Model != null) ? @Model.PINV_NO:"")'></input></td>
+                        </tr>
+                        <tr>
+                            <th>動產擔保 品名：</th>
+                            <td><input type="text" id="MPROD_NAME" size="30" style="width: 248px;" value='@((Model != null) ? @Model.MPROD_NAME : "")'></input></td>
+                            <th>車號：</th>
+                            <td colspan="2"><input type="text" id="MCAR_NO" size="30" style="width: 268px;" value='@((Model != null) ? @Model.MCAR_NO : "")'></input></td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="text-align:right;">
+                    <div class="divButton">
+                        <input type="Button" id="btnQry" class="button qry" value="查詢" />
+                    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    /*部門*/
+    //<%=txtDialog.ClientID %> = DEPT
+    var DEPTold="";    
+    var DEPTleave=false;
+    var DEPTshow=false;
+    var DEPTpost=false;
+    var DEPTtime;
+    function DEPT_init(){
+        
+    $('#DEPTval').combogrid({                
+            mode:'remote',                
+            fitColumns: false,
+            frozenColumns:2,
+            singleSelect:false,
+            pagination: true, 
+            rownumbers: true, 
+            collapsible: false,                 
+            pageSize: 10,      
+            panelWidth:500,
+            panelHeight:360,
+            value:'DEPT',
+            url: '@Url.Action("GetDEPT_SourceList")',
+            idField: 'DEPT_CODE',
+            textField: 'DEPT_CODE',
+            columns:[[
+                { field: 'DEPT_CODE', title: '部門代號', width: 90 },
+                {field:'DEPT_NAME',title:'部門名稱',width:200}
+                   
+            ]]
+        });
+        
+        var p = $('#DEPTval').combogrid('grid').datagrid('getPager').pagination({
+            displayMsg: '顯示 {from} 到 {to} 共 {total} 筆記錄',
+            pageSize: 10,
+            fitColumns: false,
+            frozenColumns: 2,
+            singleSelect: false
+        });
+    }
+
+    function DEPTonShow(param){
+        DEPTshow=true;
+        window.clearTimeout(DEPTtime);
+        $('#DEPTval').combogrid('options').url = '@Url.Action("GetDEPT_SourceList")?DEPT_CODE_section=' + $('#DEPTtxtDialog').val();
+        DEPTtime = $('#DEPTval').combogrid('grid').datagrid('reload');
+    }
+
+    function DEPTonLoad(param){
+        var txt = $('#DEPTtxtDialog').val().toUpperCase();
+        var p=param;
+        param.DEPT_CODE_section = txt;
+                       
+    }
+
+    function DEPTonChange() {
+        if (DEPTpost) {
+            DEPTpost = false;
+            return;
+        }
+
+        var txt = $('#DEPT').val().toUpperCase();
+
+        if (DEPTi == 0) {
+            $('#DEPTval').combogrid('setText', txt);
+            $('#DEPTval').combogrid('setValue', txt);
+        }
+
+        DEPTi++;
+
+        var g = $('#DEPTval').combogrid('grid'); // get datagrid object
+
+        var r;
+        if (g.datagrid('getRows').length >= 1 && g.datagrid('getRows').length <= 2) {
+            r = g.datagrid('getData').rows[0];
+            var value = $('#DEPT').val().toUpperCase();
+            if (trim(r.KEY_NO) == trim(value)) {
+                $('#DEPTtxtDialog').val(r.DEPT_CODE);
+            }
+            else {
+                if (g.datagrid('getRows').length > 1) {
+                    r = g.datagrid('getData').rows[1];
+                    value = $('#DEPT').val().toUpperCase();
+                    if (trim(r.KEY_NO) == trim(value)) {
+                        $('#DEPTtxtDialog').val(r.DEPT_CODE);
+                    }
+                    else {
+                        $('#DEPTtxtDialog').val('');
+                    }
+                }
+            }
+
+            if (DEPTshow == false && DEPTleave && g.datagrid('getRows').length == 0) {
+                $('#DEPTtxtDialog').val('');
+            }
+
+            if (DEPTshow == false && DEPTleave && g.datagrid('getRows').length != 0) {
+                r = g.datagrid('getData').rows[0];
+                var value1 = $('#DEPT').val().toUpperCase();
+                if (trim(r.KEY_NO) != trim(value1)) {
+                    $('#DEPTtxtDialog').val('');
+                }
+            }
+
+            DEPTleave = false;
+            DEPTshow = false;
+            g.datagrid('clearSelections');
+            try {
+                dialogChange('DEPT', $('#DEPT').val().toUpperCase());
+            }
+            catch (err) { }
+
+        }
+    }
+
+        function DEPTloadDialog() {
+            window.clearTimeout(DEPTtime);
+            var txt = $('#DEPT').val().toUpperCase();
+
+            $('#DEPTval').combogrid('setText', "");
+            $('#DEPTval').combogrid('setValue', "");
+            DEPTleave = true;
+
+            if (txt == "") {
+                $('#DEPTtxtDialog').val('');
+                DEPTleave = true;
+            }
+            // else
+            DEPTtime = window.setTimeout("DEPTsetTime()", "100");
+
+        }
+
+        function DEPTsetTime() {
+            var txt = $('#DEPT').val().toUpperCase();
+            $('#DEPTval').combogrid('grid').datagrid('reload');
+            DEPTold = txt;
+
+        }
+
+        var DEPTi = 0;
+        function DEPTonSelect(r) {
+            var g = $('#DEPTval').combogrid('grid'); // get datagrid object             
+            var r = g.datagrid('getSelected'); // get the selected row
+            $('#DEPTtxtDialog').val(r.DEPT_CODE);
+            $('#DEPTtxtDialog').text(r.DEPT_NAME);
+            try {
+                dialogChange('DEPT', $('#DEPT').val().toUpperCase());
+            }
+            catch (err) { }
+        }
+        
+</script>
+<script type="text/javascript">
+    /*業務*/
+    //<%=txtDialog.ClientID %> = SALES
+    var SALESold = "";
+    var SALESleave = false;
+    var SALESshow = false;
+    var SALESpost = false;
+    var SALEStime;
+    function SALES_init() {
+
+        $('#SALESval').combogrid({
+            mode: 'remote',
+            fitColumns: false,
+            frozenColumns: 2,
+            singleSelect: false,
+            pagination: true,
+            rownumbers: true,
+            collapsible: false,
+            pageSize: 10,
+            panelWidth: 500,
+            panelHeight: 360,
+            value: 'SALES',
+            url: '@Url.Action("GetSalesList")',
+            idField: 'CORP_ACCT',
+            textField: 'CORP_ACCT',
+            columns: [[
+                { field: 'CORP_ACCT', title: '員工代號', width: 90 },
+                { field: 'Sales_Name', title: '中文姓名', width: 200 },
+                 { field: 'Sales_EName', title: '英文名', width: 200 }
+
+            ]]
+        });
+        //displayMsg: '顯示 {from} 到 {to} 共 {total} 筆記錄'
+        var p = $('#SALESval').combogrid('grid').datagrid('getPager').pagination({ displayMsg: '顯示 {from} 到 {to} 共 {total} 筆記錄' });
+    }
+
+    function SALESonShow(param) {
+        SALESshow = true;
+        window.clearTimeout(SALEStime);
+        SALEStime = $('#SALESval').combogrid('grid').datagrid('reload');
+    }
+
+    function SALESonLoad(param) {
+        var txt = $('#SALEStxtDialog').val().toUpperCase();
+        var p = param;
+        param.Sales_NO_section = txt;
+
+    }
+
+    function SALESonChange() {
+        if (SALESpost) {
+            SALESpost = false;
+            return;
+        }
+
+        var txt = $('#SALES').val().toUpperCase();
+
+        if (SALESi == 0) {
+            $('#SALESval').combogrid('setText', txt);
+            $('#SALESval').combogrid('setValue', txt);
+        }
+
+        SALESi++;
+
+        var g = $('#SALESval').combogrid('grid'); // get datagrid object
+
+        var r;
+        if (g.datagrid('getRows').length >= 1 && g.datagrid('getRows').length <= 2) {
+            r = g.datagrid('getData').rows[0];
+            var value = $('#SALES').val().toUpperCase();
+            if (trim(r.KEY_NO) == trim(value)) {
+                $('#SALEStxtDialog').val(r.SALES_CODE);
+            }
+            else {
+                if (g.datagrid('getRows').length > 1) {
+                    r = g.datagrid('getData').rows[1];
+                    value = $('#SALES').val().toUpperCase();
+                    if (trim(r.KEY_NO) == trim(value)) {
+                        $('#SALEStxtDialog').val(r.SALES_CODE);
+                    }
+                    else {
+                        $('#SALEStxtDialog').val('');
+                    }
+                }
+            }
+
+            if (SALESshow == false && SALESleave && g.datagrid('getRows').length == 0) {
+                $('#SALEStxtDialog').val('');
+            }
+
+            if (SALESshow == false && SALESleave && g.datagrid('getRows').length != 0) {
+                r = g.datagrid('getData').rows[0];
+                var value1 = $('#SALES').val().toUpperCase();
+                if (trim(r.KEY_NO) != trim(value1)) {
+                    $('#SALEStxtDialog').val('');
+                }
+            }
+
+            SALESleave = false;
+            SALESshow = false;
+            g.datagrid('clearSelections');
+            try {
+                dialogChange('SALES', $('#SALES').val().toUpperCase());
+            }
+            catch (err) { }
+
+        }
+    }
+
+    function SALESloadDialog() {
+        window.clearTimeout(SALEStime);
+        var txt = $('#SALES').val().toUpperCase();
+
+        $('#SALESval').combogrid('setText', "");
+        $('#SALESval').combogrid('setValue', "");
+        SALESleave = true;
+
+        if (txt == "") {
+            $('#SALEStxtDialog').val('');
+            SALESleave = true;
+        }
+        // else
+        SALEStime = window.setTimeout("SALESsetTime()", "100");
+
+    }
+
+    function SALESsetTime() {
+        var txt = $('#SALES').val().toUpperCase();
+        $('#SALESval').combogrid('grid').datagrid('reload');
+        SALESold = txt;
+
+    }
+
+    var SALESi = 0;
+    function SALESonSelect(r) {
+        var g = $('#SALESval').combogrid('grid'); // get datagrid object             
+        var r = g.datagrid('getSelected'); // get the selected row
+        $('#SALEStxtDialog').val(r.CORP_ACCT);
+        $('#SALEStxtDialog').text(r.Sales_Name);
+        try {
+            dialogChange('SALES', $('#SALES').val().toUpperCase());
+        }
+        catch (err) { }
+    }
+
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*---------------------------Search Area---------------------------*/
+        $('#btnQry').click(function () {
+            var dateS = document.getElementById("PAPLY_DATE_S").value;
+            var dateE = document.getElementById("PAPLY_DATE_E").value;
+            var queryData = {
+                APLY_NO: $("#APLY_NO").val(),                                   //申請書編號
+                PCONTACT: $("#PCONTACT").val(),                                 //連絡人
+                PCUST_NO: $("#PCUST_NO").val(),                                 //客戶代號
+                PIS_SEARCH: ($("#PIS_SEARCH").is(':checked')) ? 'Y' : 'N',      //搜尋共同承租人
+                PCUST_NAME: $("#PCUST_NAME").val(),                             //客戶名稱
+                FRC_CODE: $("#FRC_CODE").val(),                                 //經銷商代碼
+                FRC_NAME: $("#FRC_NAME").val(),                                 //經銷商名稱
+                PCTAC_TEL: $("#PCTAC_TEL").val(),                               //連絡電話
+                PRECV_NAME: $("#PRECV_NAME").val(),                             //收件人
+                PSEND_ADDR: $("#PSEND_ADDR").val(),                             //存放地址
+                PADDR: $("#PADDR").val(),                                       //請款地址
+                PPROD_NAME: $("#PPROD_NAME").val(),                             //品名
+                PMAC_NO: $("#PMAC_NO").val(),                                   //機號
+                PAPLY_DATE_S: $("#PAPLY_DATE_S").val(),                         //申請日期(from)
+                PAPLY_DATE_E: $("#PAPLY_DATE_E").val(),                         //申請日期(to)
+                PCUR_STS: $("#PCUR_STS").val(),                                 //契約狀態
+                PEMP_CODE: $("#SALEStxtDialog").val(),                          //業務員
+                PCASE_SOUR: $("#PCASE_SOUR").find(":selected").val() == undefined ? "" : $("#PCASE_SOUR").find(":selected").val(),      //案件來源
+                PIS_DEL: ($("#PIS_DEL").is(':checked')) ? 'Y' : 'N',            //含作廢駁回
+                PDEPT_CODE: $("#DEPTtxtDialog").val(),                          //部門
+                PINV_NO: $("#PINV_NO").val(),                                   //發票號碼
+                PCAR_NO: $('#CAR_NO').val(),                                    //車號
+                MCAR_NO: $('#MCAR_NO').val(),                                   //動產擔保 車號
+                MPROD_NAME: $('#MPROD_NAME').val()                              //動產擔保 品名
+            };
+            $.ajax({
+                url: '@Url.Action("SearchContent")',
+                type: "POST",
+                dataType: "application/json; charset=utf-8",
+                data: queryData,
+                success: function (response) {
+                    var responseData = JSON.parse(response.responseText);
+                    if (responseData.Result) {
+                        location.href = '@Url.Action("QueryResult")'
+                    }
+
+                    if (!responseData.Result) {
+                        //jqTabs();
+                        $.messager.alert('錯誤訊息', responseData.Message, "error");
+                    }
+                },
+                error: function (response) {
+                    var responseData = JSON.parse(response.responseText);
+                    if (responseData.Result) {
+                        location.href = '@Url.Action("QueryResult")'
+                    }
+
+                    if (!responseData.Result) {
+                        //jqTabs();
+                        $.messager.alert('錯誤訊息', responseData.Message, "error");
+                    }
+                }
+            });
+        });
+    });
+
+
+    $('#PAPLY_DATE_S').datebox({
+        onSelect: function (date) {
+            var newDateFormat = (date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate());
+            $("#PAPLY_DATE_S").val(newDateFormat);
+        },
+        formatter: function (date)
+        {
+            return (date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate());
+        },
+        parser: function (s) {
+            var t = Date.parse(s);
+            if (!isNaN(t)) {
+                return new Date(t);
+            } else {
+                return new Date();
+            }
+        }
+    });
+    $('#PAPLY_DATE_S').datebox('options').keyHandler.query = function (q) {
+        $("#PAPLY_DATE_S").val(q);
+    }
+    $('#PAPLY_DATE_E').datebox({
+        onSelect: function (date) {
+            var newDateFormat = (date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate());
+            $("#PAPLY_DATE_E").val(newDateFormat);
+        },
+        formatter: function (date) {
+            return (date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate());
+        },
+        parser: function (s) {
+            var t = Date.parse(s);
+            if (!isNaN(t)) {
+                return new Date(t);
+            } else {
+                return new Date();
+            }
+        }
+    });
+    $('#PAPLY_DATE_E').datebox('options').keyHandler.query = function (q) {
+        $("#PAPLY_DATE_S").val(q);
+    }
+</script>

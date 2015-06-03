@@ -1,0 +1,368 @@
+﻿@model List<OrixModel.s_WE020_Grid_Result>
+
+@{
+    Layout = null;
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    @Styles.Render("~/Content/content")
+    @Styles.Render("~/Content/easyui")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/easyui")
+    <title>客戶綜合服務</title>
+</head>
+<body>
+    <div id="QueryResultArea">
+        <div style="width: 800px; height: auto;">
+            <div class="tabs-header" style="width: 798px;">
+                <div class="tabs-scroller-left" style="display: none;"></div>
+                <div class="tabs-scroller-right" style="display: none;"></div><div class="tabs-wrap" style="margin-left: 0px; margin-right: 0px; width: 798px;">
+                    <ul class="tabs">
+                        <li class="tabs-selected" id="tab1" onclick="tab_select(1,2)"><a href="javascript:void(0)" class="tabs-inner"><span class="tabs-title">申請書</span><span class="tabs-icon"></span></a></li>
+                        <li class="" id="tab2" onclick="tab_select(2,2)"><a href="javascript:void(0)" class="tabs-inner"><span class="tabs-title">標的物</span><span class="tabs-icon"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tabs-panels" style="width: 800px;">
+                <div class="panel" style="height: auto; width: 788px;display:block" id="tabpanel1">
+                    <div class="gridMain ">
+                        <div style="padding:0;margin:0;overflow-x:scroll; overflow-y:scroll;width:770px;position:relative;height:360px" id="editGrid">
+
+                            <table cellpadding="0" cellspacing="0" style="width:95%" id="tbAPLY">
+                                <tr>
+                                    <th style="value-align:left;padding-left:5px;border-right:none" class="fixCol">
+                                        <input type="button" name="excel" value="" id="btnExcel" style='width: 20px; height: 18px;
+                                            cursor: pointer; border-style: None; background-image: url("../images/excel.png");
+                                            background-color: transparent;' onclick="ExcelDownload('Aply')">
+                                    </th>
+                                </tr>
+                                <tr id="topBorder">
+
+                                    <th class="fixCol">編輯</th>
+                                    <th class="fixCol">申請書編號</th>
+                                    <th>契約起日</th>
+                                    <th>契約迄日</th>
+                                    <th>月數</th>
+                                    <th>期數</th>
+                                    <th>期租金</th>
+                                    <th>狀況</th>
+                                    <th>客戶代號</th>
+                                    <th>客戶簡稱</th>
+                                    <th>連絡人</th>
+                                    <th>品名</th>
+                                    <th>機號</th>
+                                    <th>車號</th>
+                                    <th>經銷商簡稱</th>
+                                    <th>請款地址</th>
+                                    <th>計張</th>
+                                    <th>分開發票</th>
+                                    <th>合併開立</th>
+                                    <th>統一郵寄</th>
+                                    <th>契約總額</th>
+                                </tr>
+                                @if (Model != null)
+                                {
+                                    var AplyModel = Model.Where(m => m.Type_Code != null && m.Type_Code == "Aply").ToList();
+                                    for (var result_Index = 0; result_Index < AplyModel.Count; result_Index++)
+                                    {
+                                        var type_code = (AplyModel[result_Index].Type_Code != null) ? AplyModel[result_Index].Type_Code : "";
+                                        var aply_no = (AplyModel[result_Index].APLY_NO != null) ? AplyModel[result_Index].APLY_NO : "";
+                                        if (type_code == "Aply"
+                                            && !string.IsNullOrWhiteSpace(aply_no))
+                                        {
+                                            int show_index = result_Index + 1;
+                                            <tr id='@("trA" + show_index)' class="@((result_Index % 2 == 0)?"srow":"")">
+                                                <td class="fixCol">
+                                                    <input type="button" id="btnAPLY" onclick="func_Click('@aply_no','','@("trA" + show_index)')" class="button upd" value='選擇' />&nbsp
+                                                </td>
+                                                <td class="fixCol">@((AplyModel[result_Index].APLY_NO != null) ? AplyModel[result_Index].APLY_NO : "")&nbsp</td>
+                                                <td>@((AplyModel[result_Index].con_date_fr != null) ? AplyModel[result_Index].con_date_fr : "")</td>
+                                                <td>@((AplyModel[result_Index].con_date_to != null) ? AplyModel[result_Index].con_date_to : "")</td>
+                                                <td class="number">@string.Format("{0:###,###,###,##0}", (AplyModel[result_Index].APRV_DURN_M != null && AplyModel[result_Index].APRV_DURN_M.HasValue) ? AplyModel[result_Index].APRV_DURN_M.Value : decimal.Zero)</td>
+                                                <td class="number">@string.Format("{0:###,###,###,##0}", (AplyModel[result_Index].APRV_PERD != null && AplyModel[result_Index].APRV_PERD.HasValue) ? AplyModel[result_Index].APRV_PERD.Value : decimal.Zero)</td>
+                                                <td class="number">@string.Format("{0:###,###,###,##0}", (AplyModel[result_Index].APRV_HIRE != null && AplyModel[result_Index].APRV_HIRE.HasValue) ? AplyModel[result_Index].APRV_HIRE.Value : decimal.Zero)</td>
+                                                <td>@((AplyModel[result_Index].cursts != null) ? AplyModel[result_Index].cursts : "")</td>
+                                                <td>@((AplyModel[result_Index].Cust_No != null) ? AplyModel[result_Index].Cust_No : "")</td>
+                                                <td>@((AplyModel[result_Index].Cust_Sname != null) ? AplyModel[result_Index].Cust_Sname : "")</td>
+                                                <td>@((AplyModel[result_Index].Contact != null) ? AplyModel[result_Index].Contact : "")</td>
+                                                <td>@((AplyModel[result_Index].PROD_NAME != null) ? AplyModel[result_Index].PROD_NAME : "")</td>
+                                                <td>@((AplyModel[result_Index].MAC_NO != null) ? AplyModel[result_Index].MAC_NO : "")</td>
+                                                <td>@((AplyModel[result_Index].CAR_NO != null) ? AplyModel[result_Index].CAR_NO : "")</td>
+                                                <td>@((AplyModel[result_Index].FRC_SNAME != null) ? AplyModel[result_Index].FRC_SNAME : "")</td>
+                                                <td>@((AplyModel[result_Index].REQ_PAY_ADDR != null) ? AplyModel[result_Index].REQ_PAY_ADDR : "")</td>
+                                                <td>@((AplyModel[result_Index].PAPER != null) ? AplyModel[result_Index].PAPER : "")</td>
+                                                <td>@((AplyModel[result_Index].DIVIDE != null) ? AplyModel[result_Index].DIVIDE : "")</td>
+                                                <td>@((AplyModel[result_Index].MERGE_NO != null) ? AplyModel[result_Index].MERGE_NO : "")</td>
+                                                <td>@((AplyModel[result_Index].MMail_NO != null) ? AplyModel[result_Index].MMail_NO : "")</td>
+                                                <td class="number">@string.Format("{0:###,###,###,##0}", (AplyModel[result_Index].CUR_CON_AMT != null && AplyModel[result_Index].CUR_CON_AMT.HasValue) ? AplyModel[result_Index].CUR_CON_AMT.Value : decimal.Zero)</td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel" style="height: auto; width: 788px;display:none" id="tabpanel2">
+                    <div class="gridMain ">
+                        <div style="padding:0;margin:0;overflow-x:scroll; overflow-y:scroll;width:770px;position:relative;height:360px" id="editGrid">
+                            <table cellpadding="0" cellspacing="0" style="width:95%" id="tbOBJ">
+                                <tr>
+                                    <th style="value-align:left;padding-left:5px;border-right:none" class="fixCol">
+                                        <input type="button" name="excel" value="" id="btnExcel" style='width: 20px; height: 18px;
+                                cursor: pointer; border-style: None; background-image: url("../images/excel.png");
+                                background-color: transparent;' onclick="ExcelDownload('Obj')">
+                                    </th>
+                                </tr>
+                                <tr id="topBorder">
+                                    <th class="seq fixCol"></th>
+                                    <th class="fixCol">編輯</th>
+                                    <th class="fixCol">申請書編號</th>
+                                    <th>契約起始日期</th>
+                                    <th>契約終止日期</th>
+                                    <th>月數</th>
+                                    <th>期數</th>
+                                    <th>期租金</th>
+                                    <th>狀況</th>
+                                    <th>客戶代號</th>
+                                    <th>客戶簡稱</th>
+                                    <th>連絡人</th>
+                                    <th>序號</th>
+                                    <th>品名</th>
+                                    <th>機號</th>
+                                    <th>車號</th>
+                                    <th>經銷商簡稱</th>
+                                    <th>規格</th>
+                                    <th>市價</th>
+                                    <th>殘值</th>
+                                    <th>標的物狀態</th>
+                                    <th>標的物代號</th>
+                                    <th>所在地址</th>
+                                    <th>所在電話</th>
+                                    <th>計張</th>
+                                    <th>分開發票</th>
+                                    <th>MERGE_NO</th>
+                                </tr>
+                                @if (Model != null)
+                                {
+                                    var ObjModel = Model.Where(m => m.Type_Code != null && m.Type_Code == "Obj").ToList();
+                                    for (var result_Index = 0; result_Index < ObjModel.Count; result_Index++)
+                                    {
+                                        var type_code = (ObjModel[result_Index].Type_Code != null) ? ObjModel[result_Index].Type_Code : "";
+                                        var aply_no = (ObjModel[result_Index].APLY_NO != null) ? ObjModel[result_Index].APLY_NO : "";
+                                        if (!string.IsNullOrWhiteSpace(aply_no))
+                                        {
+                                            int show_index = result_Index + 1;
+                                            <tr id='@("trO" + result_Index)' class="@((result_Index % 2 == 0)?"srow":"")">
+                                                <td class="seq fixCol">@(show_index)</td>
+                                                <td class="fixCol">
+                                                    <input type="button" id="btnObj" onclick="func_Click('@aply_no','@((ObjModel[result_Index].OBJ_CODE != null) ? ObjModel[result_Index].OBJ_CODE : "")','@("trO" + result_Index)')" class="button upd" value='選擇' />
+                                                </td>
+                                                <td class="fixCol">@aply_no</td>
+                                                <td>@((ObjModel[result_Index].con_date_fr != null) ? ObjModel[result_Index].con_date_fr : "")</td>
+                                                <td>@((ObjModel[result_Index].con_date_to != null) ? ObjModel[result_Index].con_date_to : "")</td>
+                                                <td class="number">@string.Format("{0:###,###,###,##0}", (ObjModel[result_Index].APRV_DURN_M != null && ObjModel[result_Index].APRV_DURN_M.HasValue) ? ObjModel[result_Index].APRV_DURN_M.Value : decimal.Zero)</td>
+                                                <td class="number">@string.Format("{0:###,###,###,##0}", (ObjModel[result_Index].APRV_PERD != null && ObjModel[result_Index].APRV_PERD.HasValue) ? ObjModel[result_Index].APRV_PERD.Value : decimal.Zero)</td>
+                                                <td class="number">@string.Format("{0:###,###,###,##0}", (ObjModel[result_Index].APRV_HIRE != null && ObjModel[result_Index].APRV_HIRE.HasValue) ? ObjModel[result_Index].APRV_HIRE.Value : decimal.Zero)</td>
+                                                <td>@((ObjModel[result_Index].cursts != null) ? ObjModel[result_Index].cursts : "")</td>
+                                                <td>@((ObjModel[result_Index].Cust_No != null) ? ObjModel[result_Index].Cust_No : "")</td>
+                                                <td>@((ObjModel[result_Index].Cust_Sname != null) ? ObjModel[result_Index].Cust_Sname : "")</td>
+                                                <td>@((ObjModel[result_Index].Contact != null) ? ObjModel[result_Index].Contact : "")</td>
+                                                <td>@((ObjModel[result_Index].Row != null && ObjModel[result_Index].Row.HasValue) ? ObjModel[result_Index].Row.Value.ToString() : "")</td>
+                                                <td>@((ObjModel[result_Index].PROD_NAME != null) ? ObjModel[result_Index].PROD_NAME : "")</td>
+                                                <td>@((ObjModel[result_Index].MAC_NO != null) ? ObjModel[result_Index].MAC_NO : "")</td>
+                                                <td>@((ObjModel[result_Index].CAR_NO != null) ? ObjModel[result_Index].CAR_NO : "")</td>
+                                                <td>@((ObjModel[result_Index].FRC_SNAME != null) ? ObjModel[result_Index].FRC_SNAME : "")</td>
+                                                <td>@((ObjModel[result_Index].SPEC != null) ? ObjModel[result_Index].SPEC : "")</td>
+                                                <td class="number">@string.Format("{0:###,###,###,##0}", (ObjModel[result_Index].Market_price != null && ObjModel[result_Index].Market_price.HasValue) ? ObjModel[result_Index].Market_price.Value : decimal.Zero)</td>
+                                                <td class="number">@string.Format("{0:###,###,###,##0}", (ObjModel[result_Index].RV_AMT != null && ObjModel[result_Index].RV_AMT.HasValue) ? ObjModel[result_Index].RV_AMT.Value : decimal.Zero)</td>
+                                                <td>@((ObjModel[result_Index].OBJ_STS != null) ? ObjModel[result_Index].OBJ_STS : "")</td>
+                                                <td>@((ObjModel[result_Index].OBJ_CODE != null) ? ObjModel[result_Index].OBJ_CODE : "")</td>
+                                                <td>@((ObjModel[result_Index].OBJ_LOC_ADDR != null) ? ObjModel[result_Index].OBJ_LOC_ADDR : "")</td>
+                                                <td>@((ObjModel[result_Index].OBJ_LOC_TEL != null) ? ObjModel[result_Index].OBJ_LOC_TEL : "")</td>
+                                                <td>@((ObjModel[result_Index].PAPER != null) ? ObjModel[result_Index].PAPER : "")</td>
+                                                <td>@((ObjModel[result_Index].DIVIDE != null) ? ObjModel[result_Index].DIVIDE : "")</td>
+                                                <td>@((ObjModel[result_Index].MERGE_NO != null) ? ObjModel[result_Index].MERGE_NO : "")</td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <span style="display:none">
+                <p id="rowAPLY"></p>
+                <p id="rowOBJECT"></p>
+            </span>
+            @*<script language="javascript" type="value/javascript">
+
+
+                </script>*@
+
+            <p>
+                <div class="divFunction">
+                    <input type="button" id="btnFunction1" class="button trn" value="客戶服務資料異動" onclick="functionRequest('Function1')" />
+                </div>
+                <div class="divFunction">
+                    <input type="button" id="btnFunction2" class="button trn" value="票據明細維護" onclick="functionRequest('Function2')" />
+                </div>
+                <div class="divFunction">
+                    <input type="button" id="btnFunction3" class="button trn" value="電話紀錄維護" onclick="functionRequest('Function3')" />
+                </div>
+                <div class="divFunction">
+                    <input type="button" id="btnFunction4" class="button trn" value="解約金試算" onclick="functionRequest('Function4')" />
+                </div>
+                <div class="divFunction">
+                    <input type="button" id="btnFunction5" class="button trn" value="標的物查詢" onclick="functionRequest('Function5')" />
+                </div>
+                <div class="divFunction">
+                    <input type="button" id="btnFunction6" class="button trn" value="客戶歷史交易查詢" onclick="functionRequest('Function6')" />
+                </div>
+                <div class="divFunction">
+                    <input type="button" id="btnFunction7" class="button trn" value="客戶付款記錄查詢" onclick="functionRequest('Function7')" />
+                </div>
+                <div class="divFunction">
+                    <input type="button" id="btnFunction9" class="button trn" value="催收記錄查詢" onclick="functionRequest('Function9')" />
+                </div>
+                <div class="divFunction">
+                    <input type="button" id="btnFunction10" class="button trn" value="計張資訊查詢" onclick="functionRequest('Function10')" />
+                </div>
+                <div class="divFunction">
+                    <input type="button" id="btnFunction12" class="button trn" value="申請書資料查詢" onclick="functionRequest('Function12')" />
+                </div>
+            </p>
+        </div>
+
+
+        <div class="divButton" style="float:right;">
+            <input type="button" id="btnExit" class="button exit" value="返回" onclick="location.href = '@(Url.Action("Index") + "?isFromReturn=true")'" />
+        </div>
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    function tab_select(intIndex, intLen) {
+        for (var i = 1; i <= intLen; i++) {
+            document.getElementById("tab" + i.toString()).className = "";
+            document.getElementById("tabpanel" + i.toString()).style.display = "none";
+        }
+
+        document.getElementById("tab" + intIndex.toString()).className = "tabs-selected";
+        document.getElementById("tabpanel" + intIndex.toString()).style.display = "block";
+
+    }
+
+    function ExcelDownload(type) {
+        /*
+         * Obj :標的物
+         * Aply:申請書
+        */
+        location.href = '@Url.Action("GenerateExcel")?type=' + type
+        return false;
+    }
+
+    var oldID = "";
+    var oldCSS = "";
+    function func_Click(aply, obj, trID) {
+
+        if (oldID != "") {
+            document.getElementById(oldID).className = oldCSS;
+        }
+        oldCSS = document.getElementById(trID).className;
+        oldID = trID;
+
+        document.getElementById(trID).className = "crow";
+        document.getElementById("rowAPLY").value = aply;
+        document.getElementById("rowOBJECT").value = obj;
+    }
+
+    var pageDetail = "";
+    function functionRequest(funcName) {
+
+        $.ajax({
+            url: '@Url.Action("FunctionClick")',
+            type: "POST",
+            dataType: "application/json; charset=utf-8",
+            data: {
+                rowAPLY: $('#rowAPLY').val(),
+                rowOBJECT: $('#rowOBJECT').val(),
+                functionIndex: funcName
+            },
+            success: function (response) {
+                var responseData = JSON.parse(response.responseText);
+                if (responseData.Result) {
+                    pageDetail = responseData.Data.pageDetailStr;
+                    contentChange('frameDetail');
+                }
+
+                if (!responseData.Result)
+                {
+                    //jqTabs();
+                    $.messager.alert('錯誤訊息', responseData.Message, "error");
+                }
+            },
+            error: function (response) {
+                var responseData = JSON.parse(response.responseText);
+                if (responseData.Result) {
+                    pageDetail = responseData.Data.pageDetailStr;
+                    contentChange('frameDetail');
+                }
+
+                if (!responseData.Result) {
+                    //jqTabs();
+                    $.messager.alert('錯誤訊息', responseData.Message, "error");
+                }
+            }
+        });
+
+    }
+
+    function jqTabs()
+    {
+        document.getElementById('divSearch').style.display = 'none';
+        var maintenancetabs = $("#tt").tabs();
+        maintenancetabs.tabs('select', 0);
+    }
+
+    function contentChange(sID) {
+
+
+        if (sID == "frameContent") {
+
+            if (window.parent.document.getElementById("frameContent").contentWindow.document.getElementById("ctl00_ctl00_body_btnQry") && window.parent.document.getElementById("frameContent").contentWindow.document.getElementById("tbGrid"))
+                if (window.parent.document.getElementById("frameContent").contentWindow.document.getElementById("tbGrid").rows.length > 1)
+                    window.parent.document.getElementById("frameContent").contentWindow.document.getElementById("ctl00_ctl00_body_btnQry").click();
+
+            if (window.parent.document.getElementById("frameContent").src.toString().toLowerCase().indexOf("wa070") != -1)
+                if (window.parent.document.getElementById("frameContent").contentWindow.document.getElementById("ctl00_ctl00_body_editingArea_btnQry"))
+                    window.parent.document.getElementById("frameContent").contentWindow.document.getElementById("ctl00_ctl00_body_editingArea_btnQry").click();
+
+            window.parent.document.getElementById("frameContent").style.display = "none";
+            window.parent.document.getElementById("frameDetail").style.display = "none";
+            window.parent.document.getElementById("frameFunction").style.display = "none";
+            window.parent.document.getElementById("aicFrame").style.display = "";//hide MVC frame
+
+        } else if (sID == "frameDetail") {
+
+            window.parent.document.getElementById("frameDetail").src = pageDetail;
+            window.parent.document.getElementById("frameContent").style.display = "none";
+            window.parent.document.getElementById("frameFunction").style.display = "none";
+            window.parent.document.getElementById("aicFrame").style.display = "none";//hide MVC frame
+        } else {
+            window.parent.document.getElementById("frameFunction").src = pageDetail;
+            window.parent.document.getElementById("frameDetail").style.display = "none";
+            window.parent.document.getElementById("frameFunction").style.display = "none";
+            window.parent.document.getElementById("aicFrame").style.display = "none";//hide MVC frame
+        }
+
+    }
+</script>

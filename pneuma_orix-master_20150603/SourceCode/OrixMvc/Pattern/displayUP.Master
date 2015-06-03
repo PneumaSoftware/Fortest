@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Pattern/content.Master" AutoEventWireup="true" CodeBehind="displayUP.Master.cs" Inherits="OrixMvc.Pattern.displayUP" %>
+<%@ MasterType VirtualPath="~/Pattern/content.Master" %>
+
+<asp:Content ContentPlaceHolderID="body" runat="server" ID="myBody">
+ <asp:SqlDataSource EnableViewState="true" ID="QuerySqlDataSource" ConnectionString="<%$ ConnectionStrings:myConnectionString%>"
+            runat="server"></asp:SqlDataSource>
+            
+    <div class="searchArea" id="divSearch">
+    <table cellpadding="2" cellspacing="2" >
+        <tr>
+            <td>
+                 <asp:ContentPlaceHolder ID="searchArea" runat="server">
+                 </asp:ContentPlaceHolder> 
+                
+            </td>
+            <td style="text-align:right;">              
+                 <div class="divButton">
+                <asp:Button runat="server" ID="btnQry" CssClass="button qry" Text="查詢" OnCommand="Query_Click" CommandName="Query"/>
+                </div>
+                     
+            </td>
+        </tr>        
+    </table>    
+    </div>  
+   
+     <div class="editingArea">
+        <table cellpadding="2" cellspacing="2">
+            <tr>
+                <td>
+                    <asp:ContentPlaceHolder ID="editingArea" runat="server">
+                    </asp:ContentPlaceHolder>                                
+                </td>
+            </tr>                
+        </table>        
+    </div>
+   
+
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="PopWindow" ID="myPopWindow" runat="server">
+    <asp:ContentPlaceHolder ID="PopWindow" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>

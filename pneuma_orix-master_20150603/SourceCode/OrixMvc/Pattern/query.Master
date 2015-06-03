@@ -1,0 +1,172 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Pattern/content.Master" AutoEventWireup="true" CodeBehind="query.master.cs" Inherits="OrixMvc.Pattern.query" %>
+<%@ MasterType VirtualPath="~/Pattern/content.Master" %>
+
+<asp:Content ContentPlaceHolderID="body" runat="server" ID="myBody">
+ <asp:GridView ID="dgExcel" runat="server" CellPadding="4" ForeColor="#333333"
+            GridLines="None" AllowPaging="false" EnableViewState="false" AutoGenerateColumns="false"  >
+            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <EditRowStyle BackColor="#999999" />
+            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+            
+        </asp:GridView>
+        
+     <div class="searchArea">
+        <table cellpadding="2" cellspacing="2" >
+            <tr>
+                <td>
+                    <asp:ContentPlaceHolder ID="searchArea" runat="server"></asp:ContentPlaceHolder>                   
+                </td>
+                <td style="text-align:right; vertical-align:top">
+                    <% if (this.bolAdd)
+                       { %>
+                     <div class="divButton">
+                    <asp:Button runat="server" ID="btnAdd" CssClass="button add" Text="新增" OnCommand="Status_Click" CommandName="Add"  />
+                    </div>
+                    <%}%>
+                     <div class="divButton">
+                    <asp:Button runat="server" ID="btnQry" CssClass="button qry" Text="查詢" OnCommand="Status_Click"  CommandName="Query"/>
+                    </div>
+                    
+                     <asp:ContentPlaceHolder ID="functionBar" runat="server" >
+                        
+                    </asp:ContentPlaceHolder>  
+                </td>
+            </tr>        
+        </table>
+        
+        </div> <% if (this.bolGrid)
+                       { %>
+        <div class="gridArea"> 
+<asp:UpdatePanel runat="server" ID="upQuery" RenderMode="Inline" UpdateMode="Conditional">
+    <ContentTemplate>
+       <div id="query" class="gridMain ">
+        <table cellpadding="0" cellspacing="0" class="title"  >
+       <tr>
+        <th style="text-align:left;padding-left:5px" width="100%">
+            <asp:Button runat="server" ID="excel" BackColor="Transparent" BorderStyle="None"  OnClick="toExcel" Width="20" Height="18" style="cursor:pointer;background-image:url(images/excel.png)" />                       
+        </th>
+        <th>
+            <asp:Button runat="server" ID="first" BackColor="Transparent" BorderStyle="None"  OnClick="changePage" Width="20" Height="14" style="cursor:pointer;background-image:url(images/first.png)" />            
+            <asp:Button runat="server" ID="prev" BackColor="Transparent" BorderStyle="None"  OnClick="changePage" Width="16" Height="14" style="cursor:pointer;background-image:url(images/prev.png)" />            
+        </th>
+        <th>Page</th><th> <asp:textbox runat="server" ID="goPage" CssClass="goPage" Width="27px" OnTextChanged="changePage" AutoPostBack="true" ></asp:textbox></th><th> of <%=lastPage %></th>
+        <th>
+            <asp:Button runat="server" ID="next" BackColor="Transparent" BorderStyle="None"  OnClick="changePage" Width="16" Height="14" style="cursor:pointer;background-image:url(images/next.png)" />            
+            <asp:Button runat="server" ID="last" BackColor="Transparent" BorderStyle="None"  OnClick="changePage" Width="20" Height="14" style="cursor:pointer;background-image:url(images/last.png)" /> 
+        </th>
+        <th>
+            <asp:DropDownList runat="server" ID="pageCount" AutoPostBack="true" OnSelectedIndexChanged="changePage"  >
+            <asp:ListItem Value="10">10</asp:ListItem>
+            <asp:ListItem Value="20">20</asp:ListItem>
+            <asp:ListItem Value="30">30</asp:ListItem>
+            <asp:ListItem Value="40">40</asp:ListItem>
+            </asp:DropDownList> 
+        </th>
+        <th style="padding-left:5px">View <%=this.rowStart %> - <%=this.rowEnd %> of <%=this.rowCount %></th></tr>
+       </table> 
+
+       <div style="padding:0;margin:0; overflow-x:scroll;width:100%;position:relative" runat="server" id="divGrid">
+        <table cellpadding="0" cellspacing="0" style="width:100%" id="tbGrid" >            
+            <tr>
+                <th class="seq fixCol">No</th>
+                <th  class="fixCol" >編輯</th>
+                <asp:ContentPlaceHolder runat="server" ID="queryHead"></asp:ContentPlaceHolder>
+            </tr>
+    <asp:Repeater runat="server" ID="rptQuery" OnItemCommand="Grid_Click" OnItemDataBound="Query_ItemDataBound">
+        <ItemTemplate>
+            <tr class="<%#Container.ItemIndex%2==0?"srow":"" %>" >                
+                <td class="seq fixCol"><%#Eval("Row") %></td>
+                <td class="fixCol">         
+                    <% if (this.bolDetail)
+                       { %>
+                    <asp:Button runat="server" ID="btnQuery" CssClass="button dadd" Text="明細"    CommandName="Detail"   />
+                    <% }%>                
+                    <% if (this.bolAdd && this.bolCopy) { %>
+                    <asp:Button runat="server" ID="btnCopy" CssClass="button copy" Text="複製"  CommandName="Copy"   />
+                    <% }%>
+                    <% if (this.bolUpd)
+                       { %>
+                    <asp:Button runat="server" ID="btnUpd" CssClass="button upd" Text='<%#this.txtUpd %>'   CommandName="Upd"  />
+                    <% }%>
+                    <% if (this.bolDel)
+                       { %>
+                    <asp:Button runat="server" ID="btnDel" CssClass="button del" Text="刪除"    CommandName="Del"   />
+                    <% }%>
+                    <asp:ContentPlaceHolder ID="gridButton" runat="server"></asp:ContentPlaceHolder>  
+                </td>
+                <asp:ContentPlaceHolder runat="server" ID="queryBody"></asp:ContentPlaceHolder>
+            </tr>            
+        </ItemTemplate>
+    </asp:Repeater>     
+        </table>
+        </div>    
+       </div> 
+     </ContentTemplate>     
+     <Triggers>
+     <asp:PostBackTrigger ControlID="excel" />
+     
+     </Triggers>
+</asp:UpdatePanel>   
+    </div>
+    <%}%>
+    <!--START for export excel!-->
+    <div style="display:none">
+       
+        
+        <asp:TextBox runat="server" ID="qryColumn" ></asp:TextBox>
+    </div>
+    <!--END for export excel!-->
+    
+    
+        
+
+    <script language="javascript" type="text/javascript">
+
+   
+        
+        pageDetail = "<%=this.pageDetail  %>";
+
+        if ((pageDetail.toLowerCase().indexOf("wa0601") != -1 || pageDetail.toLowerCase().indexOf("wb0101") != -1 || pageDetail.toLowerCase().indexOf("wa1301") != -1) && '<%=!IsPostBack?"Y":"N"%>'=='Y')
+            window.parent.document.getElementById("frameDetail").src = pageDetail+"?sts=1";
+         
+        // alert(window.parent.document.getElementById("frameDetail").src);
+    function setColumn()
+    { 
+        var strColumn="";
+        if (document.getElementById("tbGrid"))
+        {
+            var len = document.getElementById("tbGrid").rows[0].cells.length;
+            for (var i=2;i<len;i++)
+            {
+                if (document.getElementById("tbGrid").rows[0].cells[i].innerText.replace(" ", "") != "")
+                    strColumn += document.getElementById("tbGrid").rows[0].cells[i].innerText + ",";
+            }
+            
+            document.getElementById("<%=this.qryColumn.ClientID %>").value=strColumn;
+
+        }
+
+    }
+    if ( document.getElementById("<%=this.qryColumn.ClientID %>").value=="")
+        window.setTimeout(setColumn,"1000")
+    
+    </script>
+    
+</asp:Content>
+
+
+<asp:Content ContentPlaceHolderID="PopWindow" ID="myPopWindow" runat="server">
+    <asp:FormView runat="server" ID="rPop" OnItemCommand="Status_Click" DefaultMode="Insert">
+        <InsertItemTemplate>
+             <asp:ContentPlaceHolder ID="PopWindow" runat="server">
+        
+    </asp:ContentPlaceHolder>
+       </InsertItemTemplate>
+    </asp:FormView>
+   
+    
+</asp:Content>

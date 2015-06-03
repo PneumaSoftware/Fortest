@@ -1,0 +1,1262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A87E4E00-FFAF-4544-8B31-23180F4CFFB2}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MvcApplication1</RootNamespace>
+    <AssemblyName>MvcApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>lib\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML">
+      <HintPath>..\packages\ClosedXML.0.76.0\lib\net40-client\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Word, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>lib\Microsoft.Office.Interop.Word.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="ComboService.ashx.cs">
+      <DependentUpon>ComboService.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="content.aspx.cs">
+      <DependentUpon>content.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="content.aspx.designer.cs">
+      <DependentUpon>content.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contentPage.aspx.cs">
+      <DependentUpon>contentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contentPage.aspx.designer.cs">
+      <DependentUpon>contentPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\HOMEController.cs" />
+    <Compile Include="Controllers\WE020Controller.cs" />
+    <Compile Include="Controllers\WE010Controller.cs" />
+    <Compile Include="ControlValue.cs" />
+    <Compile Include="DialogService.ashx.cs">
+      <DependentUpon>DialogService.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FileUpload.aspx.cs">
+      <DependentUpon>FileUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileUpload.aspx.designer.cs">
+      <DependentUpon>FileUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="imageViewer.ashx.cs">
+      <DependentUpon>imageViewer.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="imageViewer.aspx.cs">
+      <DependentUpon>imageViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="imageViewer.aspx.designer.cs">
+      <DependentUpon>imageViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="main.aspx.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="main.aspx.designer.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\sendMail.cs" />
+    <Compile Include="ocxControl\ocxDate.ascx.cs">
+      <DependentUpon>ocxDate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ocxControl\ocxDate.ascx.designer.cs">
+      <DependentUpon>ocxDate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ocxControl\ocxDialog.ascx.cs">
+      <DependentUpon>ocxDialog.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ocxControl\ocxDialog.ascx.designer.cs">
+      <DependentUpon>ocxDialog.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ocxControl\ocxNumber.ascx.cs">
+      <DependentUpon>ocxNumber.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ocxControl\ocxNumber.ascx.designer.cs">
+      <DependentUpon>ocxNumber.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ocxControl\ocxTime.ascx.cs">
+      <DependentUpon>ocxTime.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ocxControl\ocxTime.ascx.designer.cs">
+      <DependentUpon>ocxTime.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ocxControl\ocxUpload.ascx.cs">
+      <DependentUpon>ocxUpload.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ocxControl\ocxUpload.ascx.designer.cs">
+      <DependentUpon>ocxUpload.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ocxControl\ocxYear.ascx.cs">
+      <DependentUpon>ocxYear.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ocxControl\ocxYear.ascx.designer.cs">
+      <DependentUpon>ocxYear.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ocxControl\ocxYM.ascx.cs">
+      <DependentUpon>ocxYM.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ocxControl\ocxYM.ascx.designer.cs">
+      <DependentUpon>ocxYM.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ocxControl\upload.aspx.cs">
+      <DependentUpon>upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ocxControl\upload.aspx.designer.cs">
+      <DependentUpon>upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pattern\content.Master.cs">
+      <DependentUpon>content.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pattern\content.Master.designer.cs">
+      <DependentUpon>content.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pattern\display.Master.cs">
+      <DependentUpon>display.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pattern\display.Master.designer.cs">
+      <DependentUpon>display.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pattern\displayUP.Master.cs">
+      <DependentUpon>displayUP.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pattern\displayUP.Master.designer.cs">
+      <DependentUpon>displayUP.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pattern\editing.Master.cs">
+      <DependentUpon>editing.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pattern\editing.Master.designer.cs">
+      <DependentUpon>editing.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pattern\empty.Master.cs">
+      <DependentUpon>empty.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pattern\empty.Master.designer.cs">
+      <DependentUpon>empty.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pattern\PageParent.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pattern\query.Master.cs">
+      <DependentUpon>query.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pattern\query.Master.designer.cs">
+      <DependentUpon>query.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pattern\report.Master.cs">
+      <DependentUpon>report.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pattern\report.Master.designer.cs">
+      <DependentUpon>report.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ExportExcelResult .cs" />
+    <Compile Include="testResponse.aspx.cs">
+      <DependentUpon>testResponse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testResponse.aspx.designer.cs">
+      <DependentUpon>testResponse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\WE0101VO.cs" />
+    <Compile Include="ViewModels\WE010VO.cs" />
+    <Compile Include="ViewModels\WE020VO.cs" />
+    <Compile Include="WA010.aspx.cs">
+      <DependentUpon>WA010.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WA010.aspx.designer.cs">
+      <DependentUpon>WA010.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WA0101.aspx.cs">
+      <DependentUpon>WA0101.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WA0101.aspx.designer.cs">
+      <DependentUpon>WA0101.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WA020.aspx.cs">
+      <DependentUpon>WA020.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WA020.aspx.designer.cs">
+      <DependentUpon>WA020.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WA0201.aspx.cs">
+      <DependentUpon>WA0201.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WA0201.aspx.designer.cs">
+      <DependentUpon>WA0201.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WA030.aspx.cs">
+      <DependentUpon>WA030.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WA030.aspx.designer.cs">
+      <DependentUpon>WA030.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WA050.aspx.cs">
+      <DependentUpon>WA050.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WA050.aspx.designer.cs">
+      <DependentUpon>WA050.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WA0501.aspx.cs">
+      <DependentUpon>WA0501.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WA0501.aspx.designer.cs">
+      <DependentUpon>WA0501.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WA060.aspx.cs">
+      <DependentUpon>WA060.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WA060.aspx.designer.cs">
+      <DependentUpon>WA060.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WA0601.aspx.cs">
+      <DependentUpon>WA0601.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WA0601.aspx.designer.cs">
+      <DependentUpon>WA0601.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WA070.aspx.cs">
+      <DependentUpon>WA070.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WA070.aspx.designer.cs">
+      <DependentUpon>WA070.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WA090.aspx.cs">
+      <DependentUpon>WA090.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WA090.aspx.designer.cs">
+      <DependentUpon>WA090.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WA100.aspx.cs">
+      <DependentUpon>WA100.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WA100.aspx.designer.cs">
+      <DependentUpon>WA100.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WA1001.aspx.cs">
+      <DependentUpon>WA1001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WA1001.aspx.designer.cs">
+      <DependentUpon>WA1001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WA100B.aspx.cs">
+      <DependentUpon>WA100B.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WA100B.aspx.designer.cs">
+      <DependentUpon>WA100B.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WA110.aspx.cs">
+      <DependentUpon>WA110.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WA110.aspx.designer.cs">
+      <DependentUpon>WA110.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WA130.aspx.cs">
+      <DependentUpon>WA130.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WA130.aspx.designer.cs">
+      <DependentUpon>WA130.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WA1301.aspx.cs">
+      <DependentUpon>WA1301.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WA1301.aspx.designer.cs">
+      <DependentUpon>WA1301.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WB010.aspx.cs">
+      <DependentUpon>WB010.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WB010.aspx.designer.cs">
+      <DependentUpon>WB010.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WB0101.aspx.cs">
+      <DependentUpon>WB0101.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WB0101.aspx.designer.cs">
+      <DependentUpon>WB0101.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WB020.aspx.cs">
+      <DependentUpon>WB020.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WB020.aspx.designer.cs">
+      <DependentUpon>WB020.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WB040.aspx.cs">
+      <DependentUpon>WB040.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WB040.aspx.designer.cs">
+      <DependentUpon>WB040.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC010.aspx.cs">
+      <DependentUpon>WC010.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WC010.aspx.designer.cs">
+      <DependentUpon>WC010.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC0101.aspx.cs">
+      <DependentUpon>WC0101.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WC0101.aspx.designer.cs">
+      <DependentUpon>WC0101.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC020.aspx.cs">
+      <DependentUpon>WC020.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WC020.aspx.designer.cs">
+      <DependentUpon>WC020.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC0201.aspx.cs">
+      <DependentUpon>WC0201.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WC0201.aspx.designer.cs">
+      <DependentUpon>WC0201.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC030.aspx.cs">
+      <DependentUpon>WC030.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WC030.aspx.designer.cs">
+      <DependentUpon>WC030.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WC050.aspx.cs">
+      <DependentUpon>WC050.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WC050.aspx.designer.cs">
+      <DependentUpon>WC050.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WD010.aspx.cs">
+      <DependentUpon>WD010.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WD010.aspx.designer.cs">
+      <DependentUpon>WD010.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WD0101.aspx.cs">
+      <DependentUpon>WD0101.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WD0101.aspx.designer.cs">
+      <DependentUpon>WD0101.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WD020.aspx.cs">
+      <DependentUpon>WD020.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WD020.aspx.designer.cs">
+      <DependentUpon>WD020.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WD030.aspx.cs">
+      <DependentUpon>WD030.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WD030.aspx.designer.cs">
+      <DependentUpon>WD030.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WD040.aspx.cs">
+      <DependentUpon>WD040.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WD040.aspx.designer.cs">
+      <DependentUpon>WD040.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WD0401.aspx.cs">
+      <DependentUpon>WD0401.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WD0401.aspx.designer.cs">
+      <DependentUpon>WD0401.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WD050.aspx.cs">
+      <DependentUpon>WD050.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WD050.aspx.designer.cs">
+      <DependentUpon>WD050.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WE010.aspx.cs">
+      <DependentUpon>WE010.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WE010.aspx.designer.cs">
+      <DependentUpon>WE010.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WE0101.aspx.cs">
+      <DependentUpon>WE0101.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WE0101.aspx.designer.cs">
+      <DependentUpon>WE0101.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WE020.aspx.cs">
+      <DependentUpon>WE020.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WE020.aspx.designer.cs">
+      <DependentUpon>WE020.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WE030.aspx.cs">
+      <DependentUpon>WE030.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WE030.aspx.designer.cs">
+      <DependentUpon>WE030.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WE0301.aspx.cs">
+      <DependentUpon>WE0301.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WE0301.aspx.designer.cs">
+      <DependentUpon>WE0301.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WE040.aspx.cs">
+      <DependentUpon>WE040.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WE040.aspx.designer.cs">
+      <DependentUpon>WE040.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WE0401.aspx.cs">
+      <DependentUpon>WE0401.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WE0401.aspx.designer.cs">
+      <DependentUpon>WE0401.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WE050.aspx.cs">
+      <DependentUpon>WE050.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WE050.aspx.designer.cs">
+      <DependentUpon>WE050.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WE0501.aspx.cs">
+      <DependentUpon>WE0501.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WE0501.aspx.designer.cs">
+      <DependentUpon>WE0501.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WE060.aspx.cs">
+      <DependentUpon>WE060.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WE060.aspx.designer.cs">
+      <DependentUpon>WE060.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WE070.aspx.cs">
+      <DependentUpon>WE070.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WE070.aspx.designer.cs">
+      <DependentUpon>WE070.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WE080.aspx.cs">
+      <DependentUpon>WE080.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WE080.aspx.designer.cs">
+      <DependentUpon>WE080.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WE090.aspx.cs">
+      <DependentUpon>WE090.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WE090.aspx.designer.cs">
+      <DependentUpon>WE090.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WE100.aspx.cs">
+      <DependentUpon>WE100.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WE100.aspx.designer.cs">
+      <DependentUpon>WE100.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WF010.aspx.cs">
+      <DependentUpon>WF010.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WF010.aspx.designer.cs">
+      <DependentUpon>WF010.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WF0101.aspx.cs">
+      <DependentUpon>WF0101.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WF0101.aspx.designer.cs">
+      <DependentUpon>WF0101.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WF020.aspx.cs">
+      <DependentUpon>WF020.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WF020.aspx.designer.cs">
+      <DependentUpon>WF020.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WF0201.aspx.cs">
+      <DependentUpon>WF0201.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WF0201.aspx.designer.cs">
+      <DependentUpon>WF0201.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WF030.aspx.cs">
+      <DependentUpon>WF030.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WF030.aspx.designer.cs">
+      <DependentUpon>WF030.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WF0301.aspx.cs">
+      <DependentUpon>WF0301.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WF0301.aspx.designer.cs">
+      <DependentUpon>WF0301.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WF040.aspx.cs">
+      <DependentUpon>WF040.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WF040.aspx.designer.cs">
+      <DependentUpon>WF040.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WF050.aspx.cs">
+      <DependentUpon>WF050.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WF050.aspx.designer.cs">
+      <DependentUpon>WF050.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WF060.aspx.cs">
+      <DependentUpon>WF060.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WF060.aspx.designer.cs">
+      <DependentUpon>WF060.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WG010.aspx.cs">
+      <DependentUpon>WG010.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WG010.aspx.designer.cs">
+      <DependentUpon>WG010.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WG0101.aspx.cs">
+      <DependentUpon>WG0101.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WG0101.aspx.designer.cs">
+      <DependentUpon>WG0101.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WG020.aspx.cs">
+      <DependentUpon>WG020.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WG020.aspx.designer.cs">
+      <DependentUpon>WG020.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WG0201.aspx.cs">
+      <DependentUpon>WG0201.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WG0201.aspx.designer.cs">
+      <DependentUpon>WG0201.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WG030.aspx.cs">
+      <DependentUpon>WG030.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WG030.aspx.designer.cs">
+      <DependentUpon>WG030.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WG0301.aspx.cs">
+      <DependentUpon>WG0301.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WG0301.aspx.designer.cs">
+      <DependentUpon>WG0301.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WG040.aspx.cs">
+      <DependentUpon>WG040.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WG040.aspx.designer.cs">
+      <DependentUpon>WG040.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WH010.aspx.cs">
+      <DependentUpon>WH010.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WH010.aspx.designer.cs">
+      <DependentUpon>WH010.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WH0101.aspx.cs">
+      <DependentUpon>WH0101.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WH0101.aspx.designer.cs">
+      <DependentUpon>WH0101.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WH020.aspx.cs">
+      <DependentUpon>WH020.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WH020.aspx.designer.cs">
+      <DependentUpon>WH020.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WH0201.aspx.cs">
+      <DependentUpon>WH0201.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WH0201.aspx.designer.cs">
+      <DependentUpon>WH0201.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WZ010.aspx.cs">
+      <DependentUpon>WZ010.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WZ010.aspx.designer.cs">
+      <DependentUpon>WZ010.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WZ020.aspx.cs">
+      <DependentUpon>WZ020.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WZ020.aspx.designer.cs">
+      <DependentUpon>WZ020.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WZ0201.aspx.cs">
+      <DependentUpon>WZ0201.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WZ0201.aspx.designer.cs">
+      <DependentUpon>WZ0201.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientSrc\ClientCheck.js" />
+    <Content Include="ClientSrc\Dialog.js" />
+    <Content Include="ClientSrc\JQuery.js" />
+    <Content Include="ClientSrc\JQueryS.js" />
+    <Content Include="ClientSrc\PopUp.js" />
+    <Content Include="ClientSrc\resizeGrid.js" />
+    <Content Include="ClientSrc\sorttable.js" />
+    <Content Include="content.aspx" />
+    <Content Include="content.css" />
+    <Content Include="contentPage.aspx" />
+    <Content Include="Content\mvccontent.css" />
+    <Content Include="Content\images\accordion_arrows.png" />
+    <Content Include="Content\images\blank.gif" />
+    <Content Include="Content\images\calendar_arrows.png" />
+    <Content Include="Content\images\combo_arrow.png" />
+    <Content Include="Content\images\datagrid_icons.png" />
+    <Content Include="Content\images\datebox_arrow.png" />
+    <Content Include="Content\images\layout_arrows.png" />
+    <Content Include="Content\images\linkbutton_bg.png" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\menu_arrows.png" />
+    <Content Include="Content\images\messager_icons.png" />
+    <Content Include="Content\images\pagination_icons.png" />
+    <Content Include="Content\images\panel_tools.png" />
+    <Content Include="Content\images\searchbox_button.png" />
+    <Content Include="Content\images\slider_handle.png" />
+    <Content Include="Content\images\spinner_arrows.png" />
+    <Content Include="Content\images\tabs_icons.png" />
+    <Content Include="Content\images\tree_icons.png" />
+    <Content Include="Content\images\validatebox_arrows.png" />
+    <Content Include="Content\images\validatebox_warning.png" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\jquery-ui-1.11.4\jquery-ui.min.css" />
+    <Content Include="Content\themes\jquery-ui-1.11.4\jquery-ui.structure.min.css" />
+    <Content Include="Content\themes\jquery-ui-1.11.4\jquery-ui.theme.min.css" />
+    <Content Include="DialogFrame.html" />
+    <Content Include="Error.aspx" />
+    <Content Include="FileUpload.aspx" />
+    <Content Include="filter.html" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="helps\wa010.txt" />
+    <Content Include="Images\ajax-upload.gif" />
+    <Content Include="Images\button.png" />
+    <Content Include="Images\buttonAdd.PNG" />
+    <Content Include="Images\buttonCall.png" />
+    <Content Include="Images\buttonDel.png" />
+    <Content Include="Images\buttonNo.png" />
+    <Content Include="Images\buttonUpd.PNG" />
+    <Content Include="Images\calendar.png" />
+    <Content Include="Images\close.png" />
+    <Content Include="Images\date.gif" />
+    <Content Include="Images\date.png" />
+    <Content Include="Images\date_b.gif" />
+    <Content Include="Images\down.gif" />
+    <Content Include="Images\error.png" />
+    <Content Include="Images\excel.png" />
+    <Content Include="Images\first.png" />
+    <Content Include="Images\function.png" />
+    <Content Include="Images\function80.png" />
+    <Content Include="Images\gridHover.PNG" />
+    <Content Include="Images\help.png" />
+    <Content Include="Images\hint.jpg" />
+    <Content Include="Images\ic_add.png" />
+    <Content Include="Images\ic_cancel.png" />
+    <Content Include="Images\ic_delete.png" />
+    <Content Include="Images\ic_edit.png" />
+    <Content Include="Images\ic_favorite.png" />
+    <Content Include="Images\ic_left.png" />
+    <Content Include="Images\ic_print.png" />
+    <Content Include="Images\ic_right.png" />
+    <Content Include="Images\ic_search.png" />
+    <Content Include="Images\ic_settings.png" />
+    <Content Include="Images\ic_upload.png" />
+    <Content Include="Images\last.png" />
+    <Content Include="Images\load.gif" />
+    <Content Include="Images\login-icon.png" />
+    <Content Include="Images\logout.png" />
+    <Content Include="Images\next.png" />
+    <Content Include="Images\nohelp.png" />
+    <Content Include="Images\nonSpace.png" />
+    <Content Include="Images\orix.png" />
+    <Content Include="Images\OrixLogo-s.jpg" />
+    <Content Include="Images\prev.png" />
+    <Content Include="Images\shadow-bar.png" />
+    <Content Include="Images\sort.gif" />
+    <Content Include="Images\up.gif" />
+    <Content Include="Images\warning.png" />
+    <Content Include="Images\windows-arrow.gif" />
+    <Content Include="imageViewer.aspx" />
+    <Content Include="JQuery\easyloader.js" />
+    <Content Include="JQuery\jquery-1.8.0.min.js" />
+    <Content Include="JQuery\jquery-1.9.0.min.js" />
+    <Content Include="JQuery\jquery.easyui.min.js" />
+    <Content Include="JQuery\Style\accordion.css" />
+    <Content Include="JQuery\Style\calendar.css" />
+    <Content Include="JQuery\Style\combo.css" />
+    <Content Include="JQuery\Style\combobox.css" />
+    <Content Include="JQuery\Style\datagrid.css" />
+    <Content Include="JQuery\Style\datebox.css" />
+    <Content Include="JQuery\Style\demo.css" />
+    <Content Include="JQuery\Style\dialog.css" />
+    <Content Include="JQuery\Style\easyui.css" />
+    <Content Include="JQuery\Style\icon.css" />
+    <Content Include="JQuery\Style\images\accordion_arrows.png" />
+    <Content Include="JQuery\Style\images\blank.gif" />
+    <Content Include="JQuery\Style\images\calendar_arrows.png" />
+    <Content Include="JQuery\Style\images\combo_arrow.png" />
+    <Content Include="JQuery\Style\images\datagrid_icons.png" />
+    <Content Include="JQuery\Style\images\date.png" />
+    <Content Include="JQuery\Style\images\datebox_arrow.png" />
+    <Content Include="JQuery\Style\images\layout_arrows.png" />
+    <Content Include="JQuery\Style\images\linkbutton_bg.png" />
+    <Content Include="JQuery\Style\images\loading.gif" />
+    <Content Include="JQuery\Style\images\menu_arrows.png" />
+    <Content Include="JQuery\Style\images\messager_icons.png" />
+    <Content Include="JQuery\Style\images\pagination_icons.png" />
+    <Content Include="JQuery\Style\images\panel_tools.png" />
+    <Content Include="JQuery\Style\images\searchbox_button.png" />
+    <Content Include="JQuery\Style\images\slider_handle.png" />
+    <Content Include="JQuery\Style\images\spinner_arrows.png" />
+    <Content Include="JQuery\Style\images\tabs_icons.png" />
+    <Content Include="JQuery\Style\images\tree_icons.png" />
+    <Content Include="JQuery\Style\images\validatebox_arrows.png" />
+    <Content Include="JQuery\Style\images\validatebox_warning.png" />
+    <Content Include="JQuery\Style\layout.css" />
+    <Content Include="JQuery\Style\linkbutton.css" />
+    <Content Include="JQuery\Style\menu.css" />
+    <Content Include="JQuery\Style\menubutton.css" />
+    <Content Include="JQuery\Style\messager.css" />
+    <Content Include="JQuery\Style\pagination.css" />
+    <Content Include="JQuery\Style\panel.css" />
+    <Content Include="JQuery\Style\progressbar.css" />
+    <Content Include="JQuery\Style\propertygrid.css" />
+    <Content Include="JQuery\Style\searchbox.css" />
+    <Content Include="JQuery\Style\slider.css" />
+    <Content Include="JQuery\Style\spinner.css" />
+    <Content Include="JQuery\Style\splitbutton.css" />
+    <Content Include="JQuery\Style\tabs.css" />
+    <Content Include="JQuery\Style\tooltip.css" />
+    <Content Include="JQuery\Style\tree.css" />
+    <Content Include="JQuery\Style\validatebox.css" />
+    <Content Include="JQuery\Style\window.css" />
+    <Content Include="lib\AjaxControlToolkit.dll" />
+    <Content Include="lib\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="lib\Microsoft.Office.Interop.Word.dll" />
+    <Content Include="lib\VS2008.Module.dll" />
+    <Content Include="lib\VS2008.Module.pdb" />
+    <Content Include="Login.aspx" />
+    <Content Include="main.aspx" />
+    <Content Include="Objects\PopUp.html" />
+    <Content Include="ocxControl\ocxDate.ascx" />
+    <Content Include="ocxControl\ocxDialog.ascx" />
+    <Content Include="ocxControl\ocxNumber.ascx" />
+    <Content Include="ocxControl\ocxTime.ascx" />
+    <Content Include="ocxControl\ocxUpload.ascx" />
+    <Content Include="ocxControl\ocxYear.ascx" />
+    <Content Include="ocxControl\ocxYM.ascx" />
+    <Content Include="ocxControl\upload.aspx" />
+    <Content Include="ProcessingFrame.html" />
+    <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Common.js" />
+    <Content Include="Scripts\knockout-2.1.0.debug.js" />
+    <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Style\content.css" />
+    <Content Include="Style\grid.css" />
+    <Content Include="Style\login.css" />
+    <Content Include="Style\main.css" />
+    <Content Include="Style\PIE.htc" />
+    <Content Include="Style\PIE.js" />
+    <Content Include="testResponse.aspx" />
+    <Content Include="WA010.aspx" />
+    <Content Include="WA0101.aspx" />
+    <Content Include="WA020.aspx" />
+    <Content Include="WA0201.aspx" />
+    <Content Include="WA030.aspx" />
+    <Content Include="WA050.aspx" />
+    <Content Include="WA0501.aspx" />
+    <Content Include="WA060.aspx" />
+    <Content Include="WA0601.aspx" />
+    <Content Include="WA070.aspx" />
+    <Content Include="WA090.aspx" />
+    <Content Include="WA100.aspx" />
+    <Content Include="WA1001.aspx" />
+    <Content Include="WA100B.aspx" />
+    <Content Include="WA110.aspx" />
+    <Content Include="WA130.aspx" />
+    <Content Include="WA1301.aspx" />
+    <Content Include="WB010.aspx" />
+    <Content Include="WB0101.aspx" />
+    <Content Include="WB020.aspx" />
+    <Content Include="WB040.aspx" />
+    <Content Include="WC010.aspx" />
+    <Content Include="WC0101.aspx" />
+    <Content Include="WC020.aspx" />
+    <Content Include="WC0201.aspx" />
+    <Content Include="WC030.aspx" />
+    <Content Include="WC050.aspx" />
+    <Content Include="WD010.aspx" />
+    <Content Include="WD0101.aspx" />
+    <Content Include="WD020.aspx" />
+    <Content Include="WD030.aspx" />
+    <Content Include="WD040.aspx" />
+    <Content Include="WD0401.aspx" />
+    <Content Include="WD050.aspx" />
+    <Content Include="WE010.aspx" />
+    <Content Include="WE0101.aspx" />
+    <Content Include="WE020.aspx" />
+    <Content Include="WE030.aspx" />
+    <Content Include="WE0301.aspx" />
+    <Content Include="WE040.aspx" />
+    <Content Include="WE0401.aspx" />
+    <Content Include="WE050.aspx" />
+    <Content Include="WE0501.aspx" />
+    <Content Include="WE060.aspx" />
+    <Content Include="WE070.aspx" />
+    <Content Include="WE080.aspx" />
+    <Content Include="WE090.aspx" />
+    <Content Include="WE100.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="WF010.aspx" />
+    <Content Include="WF0101.aspx" />
+    <Content Include="WF020.aspx" />
+    <Content Include="WF0201.aspx" />
+    <Content Include="WF030.aspx" />
+    <Content Include="WF0301.aspx" />
+    <Content Include="WF040.aspx" />
+    <Content Include="WF050.aspx" />
+    <Content Include="WF060.aspx" />
+    <Content Include="WG010.aspx" />
+    <Content Include="WG0101.aspx" />
+    <Content Include="WG020.aspx" />
+    <Content Include="WG0201.aspx" />
+    <Content Include="WG030.aspx" />
+    <Content Include="WG0301.aspx" />
+    <Content Include="WG040.aspx" />
+    <Content Include="WH010.aspx" />
+    <Content Include="WH0101.aspx" />
+    <Content Include="WH020.aspx" />
+    <Content Include="WH0201.aspx" />
+    <Content Include="WZ010.aspx" />
+    <Content Include="WZ020.aspx" />
+    <Content Include="WZ0201.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\HOME\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pattern\content.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pattern\display.Master" />
+    <Content Include="Pattern\displayUP.Master" />
+    <Content Include="Pattern\editing.Master" />
+    <Content Include="Pattern\empty.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pattern\query.Master" />
+    <Content Include="Pattern\report.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ComboService.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DialogService.ashx" />
+    <None Include="Error.log" />
+    <Content Include="imageViewer.ashx" />
+    <None Include="Images\OrixLogo-s.psd" />
+    <None Include="Images\Thumbs.db" />
+    <None Include="JQuery\Style\images\Thumbs.db" />
+    <Content Include="Views\WE010\Detail.cshtml" />
+    <Content Include="Views\WE010\Index.cshtml" />
+    <Content Include="Views\WE020\Index.cshtml" />
+    <Content Include="Views\WE020\QueryResult.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="OrixModel\OrixModel.csproj">
+      <Project>{16C16390-DD79-4C54-8BA5-FF05FF02920C}</Project>
+      <Name>OrixModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="VS2008.Module\VS2008.Module.csproj">
+      <Project>{85B0C457-CF13-4AD4-B53E-FED28AF7460C}</Project>
+      <Name>VS2008.Module</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49857</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此專案參照此電腦中缺少的  NuGet 套件。啟用「NuGet 套件還原」以便下載。如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的檔案為 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

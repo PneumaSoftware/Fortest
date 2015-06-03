@@ -1,0 +1,1008 @@
+﻿body
+{
+   
+    font-size: 12px;
+    /*font-family: Verdana, Tahoma, Arial, "Helvetica Neue" , Helvetica, Sans-Serif;*/
+    font-family:Arial, "新細明體"; 
+    padding: 0 0 0 0;
+    margin: 0px;
+}
+
+
+div.text
+{
+	padding: 1px;
+	line-height: 17px;
+	height: 19px;
+	background-color: #E2E2E2;
+	border: 1px solid #7F9DB9;
+	float: left;
+}
+
+h3
+{
+	color:Green;
+}
+
+h4
+{
+	color:darkblue;
+	margin-top:10px;
+	margin-bottom:0px;
+	font-size: 13px;
+}
+
+h5
+{
+	color:darkblue;
+	margin-top:0px;
+	margin-bottom:0px;
+	font-size: 13px;
+}
+
+code /*密碼*/
+{
+	 font-weight:bold;
+	 color:Red;
+	 padding-right:3px;
+}
+
+.memo
+{
+	font-weight:bold;
+	color:Green;
+	margin-top:10px;
+}
+table tr th
+{
+	text-align:right;
+	font-weight:normal;
+	margin:0px;
+	padding:0px;
+	letter-spacing:0px;
+	
+}
+
+table th.nonSpace
+{
+	/*color:Red;*/
+	
+}
+
+div.searchArea table,div.editingArea table
+{
+	margin:0px;
+	width: 99%;	
+} 
+
+div.editingArea table table
+{
+	width:auto;
+	
+}
+
+div.searchArea table table
+{
+	margin:5px;
+	width: auto;
+	
+}
+
+div.printArea table
+{
+	margin:10px;
+	width: auto;
+	
+}
+
+div.searchArea table
+{
+	
+	border-bottom: groove thin #808080;
+	
+}
+	
+div.searchArea table table, div.editingArea table table
+{
+	width:auto;
+	border:none;
+}
+
+
+/*begin pop window*/
+#divPopWindow, .divPopWindow
+{
+    
+    padding: 10px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    behavior: url(styles/PIE.htc);    
+    background-color:white;
+    border-style: solid;
+    border-color: #C0C0C0;
+    border-width: 5px;
+    width:auto;
+	visibility:hidden;
+    position:absolute;
+    z-index:1010;
+    top:-50px;
+    left:0px;    
+
+}
+
+.divPopWindow table
+{
+	
+  
+    font-weight:normal;
+    width:auto;
+}
+
+.divPopWindow th
+{
+    text-align:right;
+    
+}
+
+.divPopWindow td
+{
+    
+    text-align:left;
+    padding-top:7px;
+}
+
+
+.divPopWindow p
+{
+    position:relative;
+     z-index:0;
+    max-width:400px;
+    padding:0px;
+    vertical-align:top;
+    width:100%;
+    text-align:right;
+    margin:15px 0 0 0;
+}
+
+.divPopWindow #close, .divPopWindow .close
+{
+    width:101%;
+    margin-right:-20px;
+    text-align:right;
+    position:absolute;
+    margin-top:-30px;
+     cursor:pointer; 
+}
+
+.divPopWindow table tr td.PopupTitle, div.PopupTitle
+{
+	
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	padding-bottom: 7px;
+	border-bottom-style: dashed;
+	border-bottom-width: thin;
+	border-bottom-color: #C0C0C0;
+	color: #3366CC;
+} 
+/*end pop window*/
+
+div.gridArea
+{
+	width:97%;
+}
+
+input,textarea,select{font-size:12px}
+input.display, input.slock,.dialogslock input
+{
+	background-color: #E2E2E2;
+}
+
+
+/*start button*/
+input.add, input.qry, input.save, input.func, input.print, input.exit, input.sdel, input.export
+{
+	background-color:Transparent;
+	border:none;
+	min-width: 75px;
+	color: white;
+	margin: 2px;
+	padding: 3px 5px 5px 12px; /*	behavior: url(style/PIE.htc);*/
+	font-weight: bold;
+	background-repeat: no-repeat;
+    background-position:5px 3px;
+}
+
+input.export
+{	
+	background-image:url('../Images/ic_upload.png');
+}
+
+input.add
+{	
+	background-image:url('../Images/ic_add.png');
+}
+
+input.qry
+{
+	
+	background-image:url('../Images/ic_search.png');
+}
+
+input.sdel
+{
+
+    background-image:url('../Images/ic_delete.png');
+}
+
+input.save
+{
+
+    background-image:url('../Images/ic_settings.png');
+}
+
+input.func
+{
+
+    background-image:url('../Images/ic_edit.png');
+}
+
+input.hint
+{
+	background-position: right top;
+	background-image: url( '../Images/hint.jpg' );
+	background-repeat: no-repeat;
+}
+
+
+input.number, span.number{ text-align:right;font-size: 12px; font-family:Arial }
+
+input.upload
+{
+	border: 1px solid #000066;
+	background-color: #317BF7;
+	color: #FFFFFF;
+	padding: 0px 6px 0px 6px;
+	text-align: center;
+	margin: 0px 0px 0px 0px;
+	min-width: 50px;	
+	height:20px;
+	cursor:pointer;
+}
+
+input.func
+{
+	background-image: none;
+	background-repeat: repeat-x;
+	background-position: 0px 0px;
+	border: 1px solid #003300;
+	color: white;
+	padding: 2px;
+	text-align: center;
+	margin: 2px 0px 0px 2px;
+	min-width:auto;
+	width:auto;
+	height: 20px;
+	background-color: #232F6B;
+}
+
+input.print
+{
+	 background-image: url('../Images/ic_print.png');
+	 margin-bottom:25px;
+}
+
+input.exit
+{
+	background-image: url('../Images/ic_cancel.png');
+}
+
+input.dadd
+{
+	background-image: none;
+	background-repeat: repeat-x;
+	border: 1px solid #003300;
+	color: white;
+	margin: 0px 0px 2px 0px;
+	background-color: #006600;
+}
+
+input.del
+{
+	background-image: none;
+	background-repeat: repeat-x;
+	border: 1px solid #800000;
+	color: white;
+	margin: 0px 0px 2px 0px;
+	background-color: #B12532;
+}
+
+input.copy
+{
+	background-image: none;
+	background-repeat: repeat-x;
+	border: 1px solid #0066CC;
+	color: white;
+	margin: 0px 0px 2px 0px;
+	background-color: #355420;
+}
+
+input.upd
+{
+	background-image: none;
+	background-repeat: repeat-x;
+	border: 1px solid #0066CC;
+	color: white;
+	margin: 0px 0px 2px 0px;
+	background-color: #374C89;
+}
+
+
+
+input.close
+{
+    background-color: #669999;
+    background-image: url('../Images/buttonNo.png');
+    background-repeat:repeat-x;
+    border: 1px solid #808080;
+    padding: 3px 0px 3px 0px;
+
+    color: white;
+    
+}
+
+.divButton
+{
+	background-image: url('../Images/button.png');
+	background-repeat:no-repeat; 
+    width:75px;	
+    height:27px;  
+    margin:2px;
+
+}
+
+input.disabled
+{
+	color: #808080;
+	background-color: #999999;
+	cursor:default;
+}
+
+.divFunction80
+{
+	background-image: url('../Images/function80.png');
+	background-repeat:no-repeat; 
+    width:80px;	
+    height:27px;  
+    margin:2px;
+    padding:0;
+    font-weight:normal;
+     float:left;
+     color:White;
+      
+       
+
+}
+
+.trn80
+{
+	width:80px;
+	height:27px;  
+	background-color:Transparent;
+	padding-top:5px;
+	padding-left:-5px;
+	color:White;
+}
+
+.divFunction
+{
+	background-image: url('../Images/function.png');
+	background-repeat:no-repeat; 
+    width:108px;	
+    height:27px;  
+    margin:2px;
+    padding:0;
+    font-weight:normal;
+     float:left;
+     color:White;
+      
+       
+
+}
+
+.trn
+{
+	width:108px;
+	height:27px;  
+	background-color:Transparent;
+	padding-top:5px;
+	padding-left:-5px;
+	color:White;
+}
+ .button
+{
+	border:none;
+	cursor:pointer;
+	 font-size:12px;
+}
+
+/*
+ .button:hover
+{
+    filter: alpha(opacity=80);
+    -moz-opacity: 0.8; 
+    opacity: 0.8;
+}*/
+
+/*
+
+.button
+{    
+	-moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    cursor:pointer;
+    font-size:12px;
+    padding: 0px;
+}
+*/
+
+/*end button*/
+
+/*start text*/
+input.key
+{
+	
+}
+
+input.text
+{
+    padding: 1px;
+    border: 1px solid #CCCCCC;
+    width:99%;
+    margin-top:1px;
+    font-size:12px;
+}
+
+.number
+{
+    text-align:right;
+}
+
+select
+{	
+    padding: 1px;
+    border: 1px solid #CCCCCC;
+    width:auto;
+    font-size:12px;
+}
+
+
+
+input.YearMonth
+{
+  
+    background-position:right center;
+    
+    
+}
+
+input.text:hover ,select:hover
+{
+    -moz-box-shadow: 1px 1px 4px #aaaaaa;
+    -webkit-box-shadow: 1px 1px 4px #aaaaaa;
+    box-shadow: 1px 1px 4px #aaaaaa;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#aaaaaa', Direction=135, Strength=3); /* ie */
+}
+
+input.text:focus, select:focus
+{
+    outline: none;
+    -moz-box-shadow: 1px 1px 2px #aaaaaa;
+    -webkit-box-shadow: 1px 1px 2px #aaaaaa;
+    box-shadow: 1px 1px 2px #aaaaaa;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#aaaaaa', Direction=135, Strength=3); /* ie */
+    border: 1px solid #6699FF;
+}
+/*end text*/
+
+/*start grid*/
+div.gridMain table tr td input.display
+{
+	border:none;	
+	background-color:Transparent;
+}
+  
+div.gridMain
+{
+	margin-left:10px;
+    padding: 3px;
+    margin-top: 15px;    
+    background-color: white;
+    border: 1px solid #C0C0C0;
+}
+
+div.gridMainMin{width:790px;}
+div.gridMainMax{width:940px;}
+
+
+div.gridMain table
+{
+
+	background-color: #081b85;
+	border-collapse: collapse;	
+	margin:0;
+}
+
+div.gridMain table thead tr th.fixCol
+,div.gridMain table tr th.fixCol
+,div.gridMain table tr td.fixCol
+{
+	border-right: solid 1px white;
+	left: expression(this.offsetParent.scrollLeft);  
+	z-index: 101;
+	
+}
+
+div.gridMain table.title
+{
+	border-bottom: solid 1px #AADDDD;	
+	font-size:12px;
+	
+}
+div.gridMain table.title tr th input.text ,div.gridMain table.title tr th select
+{
+	padding:2;
+}
+
+div.gridMain table.title tr th img
+{
+	cursor:pointer;
+}
+ 
+div.gridMain table.title tr th input.goPage
+{
+	text-align:right; 
+}
+div.gridMain table.title tr th
+{
+	border:none;	
+	padding-right :10px;
+	text-align:right;
+	background-color:Transparent;
+	letter-spacing: 0px;
+	padding:0 2px 0px 0px;
+	cursor:pointer;
+}
+
+div.gridMain table tr th, div.editingArea div.gridMain table thead tr td
+{
+    text-align:left;
+    padding: 1px 2px  2px 6px;
+    background-color: #081b85;
+	color: #E8F1FF;
+	letter-spacing: 2px;
+	 font-weight:bold;
+}
+
+div.gridMain table tr td
+{
+	
+    background-color: white;
+
+}
+div.editingArea div.gridMain table tr.crow td,#editGrid table tr.crow td
+{
+	background-color: #FF9900;
+}
+
+
+
+div.gridMain table tr.srow td
+{
+	background-color: #d6e7ff;
+}
+
+/*
+div.gridMain table tr:hover td
+{
+    
+background-image: url('../Images/gridHover.png');
+    background-repeat:repeat-x;
+
+}
+
+div.editingArea div.gridMain table tr:hover td
+{
+    
+background-image:none;
+    background-repeat:no-repeat; 
+
+}
+
+
+div.gridMain table.edit tr:hover td
+{
+    
+background-image: url('');
+    background-repeat:repeat-x;
+
+}
+
+div.editingArea div.gridMain  table thead tr:hover td
+{
+	background-image: url('');
+    background-repeat:repeat-x;
+    color: #E8F1FF;
+    
+}*/
+
+div.gridMain table tr th,div.gridMain table tr td
+{
+    
+    padding: 1px 5px  1px   6px;
+    height:20px;
+    white-space: nowrap;
+    border-left: solid 1px #AADDDD;
+
+}
+div.gridMain table tr td table tr td
+{
+	padding:0;
+	margin:0;
+}
+
+div.gridMain table tr th.seq,div.gridMain table tr td.seq
+{
+   
+    font-weight: bold;
+    color: #233652;
+    text-align:right;
+    padding-right:3px;
+    border-left:none;
+    
+}
+
+div.editingArea  div.gridMain table tr td
+{
+    
+    
+    border-left: solid 1px #ffffff;
+    border-bottom: solid 1px #ffffff;
+
+}
+
+div.editingArea  div.gridMain table tr td table tr td
+{
+    
+    border:none;
+
+}
+
+.dgAdd, .dgDel
+{
+}
+
+#editGrid  table thead tr th  ,#editGrid  table thead tr th  
+{	
+	
+	top: expression(this.offsetParent.scrollTop);
+	position: relative;
+	z-index: 101;
+} 
+
+ #editGrid table thead th.fixCol,#editGrid table th.fixCol
+ {
+ 	left: expression(this.offsetParent.scrollLeft); /*IE5+ only*/ 
+	position: relative;
+	z-index:101; 
+ }
+ 
+ #editGrid td.fixCol,#query  table tr td.seq,#query  table tr td.fixCol,#query  table tr th.fixCol
+{ 
+	left: expression(this.offsetParent.scrollLeft); /*IE5+ only*/ 
+	 position: relative;
+	z-index:103; 
+} 
+
+#editGrid td.fixCol,#query  table tr td.seq,#query  table tr td.fixCol
+{ 
+	left: expression(this.offsetParent.scrollLeft); /*IE5+ only*/ 
+	 position: relative;
+	z-index:102; 
+} 
+
+#query  table tr th.fixCol
+{
+	left: expression(this.offsetParent.scrollLeft); /*IE5+ only*/ 
+	 position: relative;
+	z-index:104; 
+
+}
+
+input[type="text"]
+{
+	 border: solid 1px #7F9DB9;
+	 padding:1px;
+	 height:18px;
+}
+
+
+div.gridMain table tr td input[type="text"]
+{
+   	
+	border:none;	
+	width:99%;
+	height:100%;
+	margin:0;
+	
+}
+
+
+
+
+div.gridMain table tr td select
+{	
+	height:22px;
+	padding:0;
+}
+
+div.editingArea div.gridMain table tr td
+{	
+	width:100%;
+	height:100%;
+	background-color: #d6e7ff;
+	height:23px;
+}
+
+
+div.editingArea  div.gridMain table tr th
+{
+	
+        position:relative;       
+      /*    top: expression(this.offsetParent.scrollTop);*/
+         z-index:10;
+       /* margin-left:-1px;
+
+        border-right: 0px none black;    */
+}
+
+
+/* ]]> */
+/*end grid*/
+
+font#updown
+{
+	color: #FFFFFF;
+	font-weight: 900;
+}
+
+
+
+
+
+div.gridMain div table tr td span.spandate div.cal_Theme1
+{
+	background-color:Red;
+	position:absolute;
+	 z-index:1001;
+}
+/*start combobox*/
+.cbStyle .ajax__combobox_inputcontainer .ajax__combobox_textboxcontainer input
+{
+    margin: 0;
+    border: solid 1px #7F9DB9;
+    border-right: 0px none;
+    padding: 1px 0px 0px 5px;
+    font-size: 12px;
+    height: 18px;
+}
+.cbStyle .ajax__combobox_inputcontainer .ajax__combobox_buttoncontainer button
+{
+    margin: 0;
+    padding: 0;
+    background-image: url(../images/windows-arrow.gif);
+    background-position: top left;
+    border: 0px none;
+    height: 21px;
+    width: 21px;
+}
+.cbStyle .ajax__combobox_itemlist
+{
+    border-color: #7F9DB9;
+  position:relative;
+  z-index:500;
+}
+
+/*end combobox*/
+
+/*start upload control*/
+
+/*end upload control*/
+
+
+
+/* start date*/
+/*<div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_container" class="cal_Theme1" 
+style="visibility: visible; position: absolute; left: 58px; top: 93px; z-index: 1000;"><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_popupDiv" class="ajax__calendar_container"><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_header" class="ajax__calendar_header"><div><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_prevArrow" class="ajax__calendar_prev"></div></div><div><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_nextArrow" class="ajax__calendar_next"></div></div><div class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_title" class="ajax__calendar_title">十月, 2013</div></div></div><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_body" class="ajax__calendar_body"><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_days" class="ajax__calendar_days"><table id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_daysTable" cellpadding="0" cellspacing="0" border="0" style="margin: auto;"><thead id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_daysTableHeader"><tr id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_daysTableHeaderRow"><td><div class="ajax__calendar_dayname">日</div></td><td><div class="ajax__calendar_dayname">一</div></td><td><div class="ajax__calendar_dayname">二</div></td><td><div class="ajax__calendar_dayname">三</div></td><td><div class="ajax__calendar_dayname">四</div></td><td><div class="ajax__calendar_dayname">五</div></td><td><div class="ajax__calendar_dayname">六</div></td></tr></thead><tbody id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_daysBody"><tr><td class="ajax__calendar_other"><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_0_0" class="ajax__calendar_day" title="2013年9月29日">29</div></td><td class="ajax__calendar_other"><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_0_1" class="ajax__calendar_day" title="2013年9月30日">30</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_0_2" class="ajax__calendar_day" title="2013年10月1日">1</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_0_3" class="ajax__calendar_day" title="2013年10月2日">2</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_0_4" class="ajax__calendar_day" title="2013年10月3日">3</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_0_5" class="ajax__calendar_day" title="2013年10月4日">4</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_0_6" class="ajax__calendar_day" title="2013年10月5日">5</div></td></tr><tr><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_1_0" class="ajax__calendar_day" title="2013年10月6日">6</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_1_1" class="ajax__calendar_day" title="2013年10月7日">7</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_1_2" class="ajax__calendar_day" title="2013年10月8日">8</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_1_3" class="ajax__calendar_day" title="2013年10月9日">9</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_1_4" class="ajax__calendar_day" title="2013年10月10日">10</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_1_5" class="ajax__calendar_day" title="2013年10月11日">11</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_1_6" class="ajax__calendar_day" title="2013年10月12日">12</div></td></tr><tr><td class="ajax__calendar_today"><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_2_0" class="ajax__calendar_day" title="2013年10月13日">13</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_2_1" class="ajax__calendar_day" title="2013年10月14日">14</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_2_2" class="ajax__calendar_day" title="2013年10月15日">15</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_2_3" class="ajax__calendar_day" title="2013年10月16日">16</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_2_4" class="ajax__calendar_day" title="2013年10月17日">17</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_2_5" class="ajax__calendar_day" title="2013年10月18日">18</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_2_6" class="ajax__calendar_day" title="2013年10月19日">19</div></td></tr><tr><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_3_0" class="ajax__calendar_day" title="2013年10月20日">20</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_3_1" class="ajax__calendar_day" title="2013年10月21日">21</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_3_2" class="ajax__calendar_day" title="2013年10月22日">22</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_3_3" class="ajax__calendar_day" title="2013年10月23日">23</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_3_4" class="ajax__calendar_day" title="2013年10月24日">24</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_3_5" class="ajax__calendar_day" title="2013年10月25日">25</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_3_6" class="ajax__calendar_day" title="2013年10月26日">26</div></td></tr><tr><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_4_0" class="ajax__calendar_day" title="2013年10月27日">27</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_4_1" class="ajax__calendar_day" title="2013年10月28日">28</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_4_2" class="ajax__calendar_day" title="2013年10月29日">29</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_4_3" class="ajax__calendar_day" title="2013年10月30日">30</div></td><td class=""><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_4_4" class="ajax__calendar_day" title="2013年10月31日">31</div></td><td class="ajax__calendar_other"><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_4_5" class="ajax__calendar_day" title="2013年11月1日">1</div></td><td class="ajax__calendar_other"><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_4_6" class="ajax__calendar_day" title="2013年11月2日">2</div></td></tr><tr><td class="ajax__calendar_other"><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_5_0" class="ajax__calendar_day" title="2013年11月3日">3</div></td><td class="ajax__calendar_other"><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_5_1" class="ajax__calendar_day" title="2013年11月4日">4</div></td><td class="ajax__calendar_other"><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_5_2" class="ajax__calendar_day" title="2013年11月5日">5</div></td><td class="ajax__calendar_other"><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_5_3" class="ajax__calendar_day" title="2013年11月6日">6</div></td><td class="ajax__calendar_other"><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_5_4" class="ajax__calendar_day" title="2013年11月7日">7</div></td><td class="ajax__calendar_other"><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_5_5" class="ajax__calendar_day" title="2013年11月8日">8</div></td><td class="ajax__calendar_other"><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_day_5_6" class="ajax__calendar_day" title="2013年11月9日">9</div></td></tr></tbody></table></div><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_months" class="ajax__calendar_months" style="display: none; visibility: hidden;"><table id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_monthsTable" cellpadding="0" cellspacing="0" border="0" style="margin: auto;"><tbody id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_monthsBody"><tr><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_month_0_0" class="ajax__calendar_month"><br>一月</div></td><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_month_0_1" class="ajax__calendar_month"><br>二月</div></td><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_month_0_2" class="ajax__calendar_month"><br>三月</div></td><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_month_0_3" class="ajax__calendar_month"><br>四月</div></td></tr><tr><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_month_1_0" class="ajax__calendar_month"><br>五月</div></td><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_month_1_1" class="ajax__calendar_month"><br>六月</div></td><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_month_1_2" class="ajax__calendar_month"><br>七月</div></td><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_month_1_3" class="ajax__calendar_month"><br>八月</div></td></tr><tr><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_month_2_0" class="ajax__calendar_month"><br>九月</div></td><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_month_2_1" class="ajax__calendar_month"><br>十月</div></td><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_month_2_2" class="ajax__calendar_month"><br>十一月</div></td><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_month_2_3" class="ajax__calendar_month"><br>十二月</div></td></tr></tbody></table></div><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_years" class="ajax__calendar_years" style="display: none; visibility: hidden;"><table id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_yearsTable" cellpadding="0" cellspacing="0" border="0" style="margin: auto;"><tbody id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_yearsBody"><tr><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_year_0_0" class="ajax__calendar_year"></div></td><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_year_0_1" class="ajax__calendar_year"></div></td><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_year_0_2" class="ajax__calendar_year"></div></td><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_year_0_3" class="ajax__calendar_year"></div></td></tr><tr><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_year_1_0" class="ajax__calendar_year"></div></td><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_year_1_1" class="ajax__calendar_year"></div></td><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_year_1_2" class="ajax__calendar_year"></div></td><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_year_1_3" class="ajax__calendar_year"></div></td></tr><tr><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_year_2_0" class="ajax__calendar_year"></div></td><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_year_2_1" class="ajax__calendar_year"></div></td><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_year_2_2" class="ajax__calendar_year"></div></td><td><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_year_2_3" class="ajax__calendar_year"></div></td></tr></tbody></table></div></div><div><div id="ctl00_ctl00_body_masterFormView_editingArea_addEFF_DATE_CalendarForm_today" class="ajax__calendar_footer ajax__calendar_today">Today: 十月 13, 2013</div></div></div></div>
+*/
+
+
+span.spandate {
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  border-width: 1px;
+  border-style: solid;
+  overflow: hidden;
+  vertical-align: middle;
+  border-color:  #7F9DB9;
+}
+input.date {
+  font-size: 12px;
+  border: 0px;
+  height: 20px;
+  margin: 0;
+  padding: 0px 1px;
+  *margin-top: -1px;
+ 
+  vertical-align: baseline;
+}
+span.date {
+  width: 17px;
+  height: 17px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+   background: url('../images/date.png') no-repeat center center;
+}
+
+table tr th h2
+{
+	font-size: 14px;
+	color: #336699;
+	font-weight: bold;
+	padding:0px;
+	margin:0px;
+}
+
+
+/*end date*/
+
+ .dialog .combo-arrow, .dialogslock .combo-arrow
+{
+	width: 17px;
+  height: 17px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+  opacity: 0.6;
+	background: url('../jquery/style/images/searchbox_button.png') no-repeat center center;
+}
+
+.combo-arrow {
+  background-color: #ffffff;
+}
+
+div.gridMain table tr td input.date
+{
+	
+	border:none;	
+	width:99%;
+	height:100%;
+	margin:0;
+}
+
+tr.sub td, div.editingArea div.gridMain table tr.sub td
+{
+	color: red;
+	font-family: Arial;
+	text-align: right;
+	background-color: #FFFFCC;
+}
+
+
+
+/* start calendar */
+
+
+.cal_Theme1 .ajax__calendar_container,
+div.gridMain div table td div.cal_Theme1 div.ajax__calendar_container {
+background-color: #DEF1F4;
+border:solid 1px #77D5F7;
+
+
+}
+
+.cal_Theme1 .ajax__calendar_header,
+div.gridMain div table td div.cal_Theme1 div.ajax__calendar_container .ajax__calendar_header  {
+background-color: #ffffff;
+margin-bottom: 4px;
+}
+
+.cal_Theme1 .ajax__calendar_title,
+.cal_Theme1 .ajax__calendar_next,
+.cal_Theme1 .ajax__calendar_prev, 
+div.gridMain div table td div.cal_Theme1 div.ajax__calendar_container .ajax__calendar_title ,
+div.gridMain div table td div.cal_Theme1 div.ajax__calendar_container .ajax__calendar_next,
+div.gridMain div table td div.cal_Theme1 div.ajax__calendar_container .ajax__calendar_prev {
+color: #004080;
+padding-top: 3px;
+}
+
+.cal_Theme1 .ajax__calendar_body ,
+div.gridMain div table td div.cal_Theme1 div.ajax__calendar_container .ajax__calendar_body {
+background-color: #ffffff;
+border: solid 1px #77D5F7;
+}
+
+.cal_Theme1 .ajax__calendar_dayname,
+div.gridMain div table td div.cal_Theme1 div.ajax__calendar_container .ajax__calendar_dayname {
+text-align:center;
+font-weight:bold;
+margin-bottom: 4px;
+margin-top: 2px;
+color: #004080;
+}
+
+.cal_Theme1 .ajax__calendar_day,
+div.gridMain div table td div.cal_Theme1 div.ajax__calendar_container .ajax__calendar_day {
+color: #004080;
+text-align:center;
+}
+
+.cal_Theme1 .ajax__calendar_days,
+div.gridMain div table td div.cal_Theme1 div.ajax__calendar_container .ajax__calendar_days table tr td {
+ background-color:White;
+ 
+}
+
+.cal_Theme1 .ajax__calendar_hover .ajax__calendar_day,
+.cal_Theme1 .ajax__calendar_hover .ajax__calendar_month,
+.cal_Theme1 .ajax__calendar_hover .ajax__calendar_year,
+.cal_Theme1 .ajax__calendar_active,
+div.gridMain div table td div.cal_Theme1 div.ajax__calendar_container .ajax__calendar_hover .ajax__calendar_day,
+div.gridMain div table td div.cal_Theme1 div.ajax__calendar_container .ajax__calendar_hover .ajax__calendar_month,
+div.gridMain div table td div.cal_Theme1 div.ajax__calendar_container .ajax__calendar_hover .ajax__calendar_year,
+ div.gridMain div table td div.cal_Theme1 div.ajax__calendar_container .ajax__calendar_active {
+color: #004080;
+font-weight: bold;
+background-color: #DEF1F4;
+}
+
+.cal_Theme1 .ajax__calendar_today,div.editingArea 
+div.gridMain div table td div.cal_Theme1 div.ajax__calendar_container .ajax__calendar_today {
+font-weight:bold;
+}
+
+.cal_Theme1 .ajax__calendar_other,
+.cal_Theme1 .ajax__calendar_hover .ajax__calendar_today,
+.cal_Theme1 .ajax__calendar_hover .ajax__calendar_title, 
+div.gridMain div table td div.cal_Theme1 div.ajax__calendar_container .ajax__calendar_other,
+div.gridMain div table td div.cal_Theme1 div.ajax__calendar_container .ajax__calendar_hover .ajax__calendar_today,
+div.gridMain div table td div.cal_Theme1 div.ajax__calendar_container .ajax__calendar_hover .ajax__calendar_title{
+color: #bbbbbb;
+}
+
+div .hiddenScroll
+{
+	scrollbar-3dlight-color:#F0F0F0;
+    scrollbar-arrow-color:#F0F0F0;
+    scrollbar-base-color:#F0F0F0;
+    scrollbar-darkshadow-color:#F0F0F0;
+    scrollbar-face-color:#F0F0F0;
+    scrollbar-highlight-color:#F0F0F0;
+    scrollbar-shadow-color:#F0F0F0
+}
+
+tr#topBorder th
+{
+	border-top:solid 1px white;
+/* end calendar */

@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Pattern/content.Master" AutoEventWireup="true" CodeBehind="display.Master.cs" Inherits="OrixMvc.Pattern.display" %>
+<%@ MasterType VirtualPath="~/Pattern/content.Master" %>
+
+<asp:Content ContentPlaceHolderID="body" runat="server" ID="myBody">
+ <asp:SqlDataSource EnableViewState="true" ID="QuerySqlDataSource" ConnectionString="<%$ ConnectionStrings:myConnectionString%>"
+            runat="server"></asp:SqlDataSource>
+            
+    <div class="searchArea" id="divSearch">
+    <table cellpadding="2" cellspacing="2" >
+        <tr>
+            <td>
+                 <asp:ContentPlaceHolder ID="searchArea" runat="server">
+                 </asp:ContentPlaceHolder> 
+                
+            </td>
+            <td style="text-align:right;">              
+                 <div class="divButton">
+                <asp:Button runat="server" ID="btnQry" CssClass="button qry" Text="查詢" OnCommand="Query_Click" CommandName="Query"/>
+                </div>
+                <asp:ContentPlaceHolder ID="functionBar" runat="server">
+                    
+                    </asp:ContentPlaceHolder>       
+            </td>
+        </tr>        
+    </table>    
+    </div>  
+   <asp:UpdatePanel runat="server" ID="upArea" RenderMode="Inline" >
+    <ContentTemplate>
+   
+     <div class="gridArea">
+        <table cellpadding="2" cellspacing="2">
+            <tr>
+                <td>
+                    <asp:ContentPlaceHolder ID="editingArea" runat="server">
+                    </asp:ContentPlaceHolder>                                
+                </td>
+            </tr>                
+        </table>        
+    </div>
+     </ContentTemplate>
+    <Triggers><asp:AsyncPostBackTrigger ControlID="btnQry" /></Triggers>
+    
+   </asp:UpdatePanel> 
+
+
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="PopWindow" ID="myPopWindow" runat="server">
+    <asp:ContentPlaceHolder ID="PopWindow" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>

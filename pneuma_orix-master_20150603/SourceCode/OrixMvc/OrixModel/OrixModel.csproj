@@ -1,0 +1,2018 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{16C16390-DD79-4C54-8BA5-FF05FF02920C}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OrixModel</RootNamespace>
+    <AssemblyName>OrixModel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ACC10.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACC11.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACC18.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdminId.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AMCREO.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AnnualEmp.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AOComment.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AOType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplyMail.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApproveType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AR_PRED_date_1.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AskLeave.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AskLeaveClass.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Beforehand.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CameraDetail.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CameraMain.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CameraType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CareDetail.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CareKeep.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CareMain.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CareType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Certificate.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClockEmp.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClockType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ComCrit.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ComDetail.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ComeVisit.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ComMain.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ComMd.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Company.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyAply.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyAplyScr.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyCopy.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyCopyType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyName.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ComType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfRoomDetail.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfRoomDetail2009.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfRoomMain.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfRoomType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Counter.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditTime.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CrossRedate.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CrossSell.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CusSrvType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomApprove.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomApproveNType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomeApproveName.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustRequire.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustRequireType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DiplomaticEmp.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dispatch.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DispatchType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocMd.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dtproperty.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmpNote.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmpSign.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmpTravel.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entrance.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EquiApply.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EquiApplyDetail.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EquiSpec.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EquiStock.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EquiType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ETemporary.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExpAllot.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EYesterday.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralItem.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralService.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="gudata.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="gudata_OLD.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="gudata_type.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GuestBook.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Holiday.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HolidayLogin.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HolidayType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HolidayType1.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HomePage.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HostName.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HR0101.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HR6861.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HR6861T.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HREMP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HREmpScr.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HRMail.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HU_DEPT1.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HU_DEPT_20121108.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Information.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformationType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InsuranceRatio.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InsuranceType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IP位址資料.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IVM01.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IVM02.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IVM03.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JCICAPLY.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="junket.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="junketItem.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveOffice.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LEX_SallyForth.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LEX_VAL_BAL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Machinery.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MachineryType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Meet.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MeetItem.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MessageClass.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MessageEmp.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MessageRule.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NBCarry.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NBCarryType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewEmp.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewEmpBoss.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="News.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NEW契約餘額.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NoCashFlow.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NtMd.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OALTcommon.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OALTQ1.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OALTQ2.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OALTQ3.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OALTQ4.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OALTQ6.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OALTQ7.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OALTquoted.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OALTQution.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OALTSrvMail.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OALTSrvMailScr.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OALTteach.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OALT_FIELD_SIGN.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="old_OTC_PROCED_BACK_ACT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="old_OTC_PROCED_BACK_ERD.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="old_OTC_PROCED_DEPT_ERD.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ONESTOP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ONESTOPScr.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ONESTOPType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ONESTOPUNIT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ONESTOPUNITemp.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_ACT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_ACTION.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_ACTION_DETAIL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_APLY_APRV_PERSON.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_AR_APLY_COND.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_AR_APLY_SHARE_DET.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_AR_APLY_SHARE_DET_1.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_AR_APRV_COND.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_AR_BUYER.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_AR_B_CTL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_AR_B_CTL_1.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_AR_CASE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_AR_INVOICE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_AR_PAY_APLY.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_AR_PAY_APLY_1.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_AR_TT_DTL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_ATCH_OTHER.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_BLD_MORT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_BUILDING.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_CAN_REASON.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_CHECK_TEMP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_CUST_QUOTA_APLY.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_CUST_QUOTA_APRV.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_DAILY_PERSON.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_DOC_BR_APLY_DETAIL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_DOC_BR_APLY_SHEET.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_DOC_BR_APRV1.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_DOC_BR_APRV2.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_DOC_BR_APRV3.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_DOC_BR_DETAIL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_DOC_BR_SHEET.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_DOC_CAN.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_DOC_CAN_APRV.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_DOC_CHANGE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_DOC_IN_DETAIL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_DOC_IN_SHEET.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_DOC_R_DETAIL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_DOC_R_SHEET.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_DOC_STATUS.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_DOC_STOCK.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_FARE_APLY.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_FARE_APLY_DETAIL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_FARE_APRV.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_FARE_CODE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_FARE_CODE1.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_FARE_DEPT_AUD_LVL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_FARE_PERSON.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_FARE_RECV_CODE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_FEE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_GUDATA.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_LAND.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_LAND_MORT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_LAW_PAPER.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_LEND_SHEET.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_LOC.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_LOC_DETAIL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_PAPER_BAL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_PAPER_RULE_COLOR.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_PAPER_RULE_COLOR_HIST.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_PAPER_RULE_MASTER.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_PAPER_RULE_MONO.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_PAPER_RULE_MONO_HIST.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_PAPER_SUPPLY_INV.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_PAPER_SUPPLY_INV_TEMP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_PAPER_SUP_APLY.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_PAPER_USE_DTL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_PAPER_USE_DTL_TEMP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_RCV_DETAIL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_RCV_MONEY.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_SAVE_APRV.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_SAVE_CASE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_SAVE_CASE_DTL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_SAVE_GOAL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_SAVE_PERSON.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR2_WARRANTER.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_APRVD_CASE_PROGRESS.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_AUDIT_HEAD.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_BORROW_EXP_INTEREST_DTL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_BORROW_EXP_REPAY_DTL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_BORROW_RATE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_BORROW_REAL_REPAY_DTL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_CASE_APLY_APLY_COND2.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_CASE_APLY_POLICY.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_CASE_APLY_RENTER.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_CASE_APLY_SIGN_REC.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_Common_Remark.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_COND_DEF.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_COND_LST.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_CONTRACT_SURPLUS.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_CONTRACT_TEMP_PARA.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_CONTRACT_TEMP_PARA_LST.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_CONTRACT_TEMP_SET.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_CON_BAL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_CRITICAL_TRACKING.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_EMAIL_LIST.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_FILE_STORE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_FRC_DEP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_FRC_SALES.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_FRC_VER.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_FUNCTION.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_FUNC_BTN.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_FUNDS.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_HINT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_LATENT_CUSTOM.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_MASTER_CONTRACT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_MENU_SET.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_MIME.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_PAPER_AP_TMP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_PAPER_AR_TMP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_PAPER_QUOTATION.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_PAPER_QUOTATION_VALUATION.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_PAPER_SUPPLY_INV_TEMP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_PAPER_USE_DTL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_PAPER_USE_DTL_HIS.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_PAPER_USE_DTL_TMP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_PAPER_USE_DTL_TMP_HIS.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_QUOTA_APLY_APLY_COND.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_QUOTA_APLY_APRV_COND.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_QUOTA_APLY_BASE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_QUOTA_APLY_OBJ.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_QUOTA_APLY_OBJ_ACCS.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_QUOTA_APLY_USER.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_QUOTA_APRV_CALSS_APLY.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_QUOTA_APRV_CALSS_APRV.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_QUOTA_CASE_TYPE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_QUOTA_CONTAIN_FORMER_APLY.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_QUOTA_CONTAIN_FORMER_APRV.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_RECV_PAPER_TEMP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_SALES_DEP_REC.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_USERS.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_USER_FUNC.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_USER_FUNC_BTN.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_VISIT_REC.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_Zip.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_授權類別.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_業績備註.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR3_機具分類表.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORIXAuthority.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrixGift.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrixGiftScr.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrixGiftType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORIXLVL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrixModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrixModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrixModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrixModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrixModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ORIXReceive.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORIXSend.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORIX_CHM01_OP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORIX_SPEICAL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORM01.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORM02.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORM03.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORT01.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORT02.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORT03.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORT04.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORT05.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORT06.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_ACCS.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_APRV_EMP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_ARP_MTHD.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_ASUR.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_ASUR_TYPE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_ATCH_CODE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_AUD_AUTH.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_AUD_LVL_NAME.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_AUD_REF.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_AUD_TYPE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_BAD_DEBT_EMP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_BANK_AMT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_BANK_LOAN.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_BANK_LOAN_CHG.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_BANK_LOAN_DTL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_BANK_RTN.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_BANK_RTN_DTL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_BLOC.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_BLOC_CODE_NUM.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_BOOK.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_BOOK_DTL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_BUS_TUBL_CODE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CAR_IMP_DATA.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_APLY_APLY_COND.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_APLY_ARP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_APLY_ASUR.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_APLY_AUD.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_APLY_BASE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_APLY_CREDIT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_APLY_EXE_AMOR_DTL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_APLY_EXE_COND.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_APLY_FEE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_APLY_IMAGE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_APLY_MOBJ.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_APLY_OBJ.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_APLY_RLTY_IMP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_APLY_SCUR.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_APLY_SHARE_DET.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_AUD_SELECT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_CONT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_EXE_FEE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_INV_MERGE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_INV_MERGE_SET.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="or_case_jcic_contract_data.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="or_case_jcic_contract_head.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="or_case_jcic_payment_data.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="or_case_jcic_payment_head.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="or_case_jcic_set.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_REF.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CASE_TYPE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CODE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_COMMON_CODE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CONTRACT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CON_BAL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CON_CHG.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CON_CHG_CODE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CON_CODE_NUM.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CON_COMMAND.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CON_VAL_BAL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_COUNTRY.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CUSTOM.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CUST_DATA_CHG_REC.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CUST_KIND.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CUST_NAT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_CUST_TOTAL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_DEPR_CODE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_DEPT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_DEPT_AUD_LVL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_DEPT_GRANT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_DISH_NOTY.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_DISH_PROC.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_DIVD_RATE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_EMP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_EMP_BELONG_DEPT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_EMP_PASS.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_EXCH.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_FAULT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_FC.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_FRC.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_FRC_OBJ_BUY_SET.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_FUNCTION.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_GROUP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_GRP_EMP_SET.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_GRP_FUN_SET.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_IMPS_APLY_BASE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_IMPS_APLY_CONDIT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_IMPS_APLY_IMPS_AUD.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_IMPS_APLY_RLTY_IMP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_IMPS_APLY_SCUR.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_IMPS_APLY_SELL_AUD.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_IMPS_APLY_SET_AMT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_IMPS_CUST.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_INV_APART_DTL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_INV_APART_OBJ.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_INV_APART_SET.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_INV_DATA.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_INV_MERGE_CHG_LOG.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_JOB_NAME.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_LACK_DATA.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_LACK_PROC.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_LEASE_OBJ_MAP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_LOAN_MTHD.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_MAIN_MENU_SET.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_MARG_MIFY.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_MERG_MAIL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_MOBJECT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_MOV_IMP_DATA.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_OBJECT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_OBJ_CATE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_OBJ_CHG.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_OBJ_DEPR_SET.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_OBJ_DTL_CATE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_OBJ_STS.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_OBJ_SUM_DEPR.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_ORDER.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_OTH_IMP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_PA.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_PAPER_IMP_DATA.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_PRESS_CODE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_PRESS_DATE_DEF.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_PRESS_REC.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_PRESS_REC_T.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_PRESS_REC_TEST.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_PRESS_STAT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_PRESS_STAT_LAST.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_PRESS_STAT_NO.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_PRESS_STAT_POINT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_PRESS_TYPE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_QUOT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_QUOTA_APLY_BASE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_QUOT_DTL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_RECV_PAPER.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_REQUEST.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_REQUEST_DTL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_REQUEST_REMARK.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_RLTY_IMP_DATA.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_SALES_AUTH.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_SALES_AUTH_DTL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_SALES_AUTH_HIST.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_SALES_MIFY.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_SHIP_IMP_DATA.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_SHT_NO_NUM.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_SRV_REC.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_SUPL_CODE_NUM.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_TR.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_TRANS_CIT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_TRANS_CIT_DTL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_WAIT_SEND_BIZ_LETTER.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_WAIT_SEND_KEEP_LETTER.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_WAIT_SEND_MAIL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OR_YEAR_SALES_PRJ.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_APLY_STORE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_APLY_STORE1.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_APLY_STORE_CHG.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_CASE_BASE_REM.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_CUSTCOP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_CUSTINCOME.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_CUSTMEM.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_DOC_BR.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_FIELD_SIGN.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_INT_APLY.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_INT_APLY_HOMENOTE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_INT_FLOW.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_NEW_CUST_TYPE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_Absorb.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_APLY.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_APLY_HOMENOTE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_APLY_LIST.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_APRV.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_APRV_T.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_BACK_ACT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_BACK_ERD.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_COLUMN.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_Content.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_Content2.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_DEMERIT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_Proced_Demerit_Affirm.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_DEPT_ERD.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_DOC.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_INVO.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_LOSE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_LVL.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_MIS.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_MIS_TYPE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_NEW_APLYNO.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_OALTADD.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_OBJECT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_PAY.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_SEND.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_TYPE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_PROCED_UNITE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTC_VISA_BASE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaperAply.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaperAplyScr.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaperCTW.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaperFolder.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaperItem.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaperSelectAply.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaperSelectT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pbcatedt.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pbcatfmt.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pbcatvld.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PE_ReviewForm.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PostAgent.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Postal.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProcedUnit.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PROCED_CODE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PROCED_Deadline.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectorDetail.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectorMain.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectorType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProocedUNIT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RCF099.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReasonMail.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecordDetail.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecordMain.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecordType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rentec.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RentecACH.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RentecType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReplyBook.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ResponsetType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SALEDEPCU.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SALEDEPREC.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SALEDEPTYPE.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SALE_APLY_AMOUNT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleDetail.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleItem.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleMain.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleView.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityAgree.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Service.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceMail.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceRMail.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_Amount.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_AReporder.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_CAROrder.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_Contract.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_cost.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_Custom.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_ETAGPay.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_Holiday.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_INVO.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_licence.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_licenceDate.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_licenceRed.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_Order.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_OtherINV.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_OtherSendPay.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_RAmount.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_Reporder.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_ReporderList.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_ReporderScr.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_ReporderSeat.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_RINVO.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_RorderT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_RVend.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_Self.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shart_SendCar.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shopping.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sign_AgreeBook.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SL91.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Special.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpecialMail.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpecialType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sq_mail_check.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sq_quta.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sq_quta_m.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sq_quta_mv.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrtbivrTMail.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STM01.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STM03.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STM04.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STM06.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="s_ConditionItems_Result.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="s_Emp_Class_Result.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="s_GetNumber_Result.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="s_WE020_Grid_Result.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCategory.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="test.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Unit.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USBCarry.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USBDetail.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USBMain.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USBType.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="view_rent_hist.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VoteDetail.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VoteLog.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VoteMain.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_OR_DEPT.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_OR_EMP.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WB6101.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WB6621.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WB6621type.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WB6621_APRV.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkClass.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkEmp.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkRecord.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkState.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkView.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="work_day.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YearHoliday.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="員工.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="員工_950310.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="員工_970508.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="員工_981006.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="郵件帳號_.cs">
+      <DependentUpon>OrixModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OrixModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OrixModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="OrixModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OrixModel.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="OrixModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OrixModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50267</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此專案參照此電腦中缺少的  NuGet 套件。啟用「NuGet 套件還原」以便下載。如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的檔案為 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

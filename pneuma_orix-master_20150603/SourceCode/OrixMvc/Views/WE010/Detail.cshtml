@@ -1,0 +1,1213 @@
+﻿@model OrixMvc.ViewModels.WE0101VO
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>客戶資料維護</title>
+    @Styles.Render("~/Content/content")
+    @Styles.Render("~/Content/easyui")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/easyui")
+    <script src="~/ClientSrc/ClientCheck.js" type="text/javascript"></script>
+    <script src="~/Scripts/Common.js" type="text/javascript"></script>
+</head>
+<body>
+    @if (Request.Params["WF0101"] == "true" || Request.Params["WE030"] == "true")
+    {
+        <div style="width:100%;height:19px;padding:4px;font-size:13px; font-weight:bold; background-color:#150643;color:White;font-family: Verdana, Tahoma, Arial, Helvetica Neue , Helvetica, Sans-Serif;">【WE010】客戶資料維護</div>
+    }
+    <div class="editingArea">
+        <form method="post" id="formData">
+        <input type="hidden" name="hMode" id="hMode">
+        <table cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td>
+                        <div id="editingPanel">
+                            <table cellspacing="0" border="0" id="masterFormView" style="border-collapse: collapse;">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2">
+                                            <table cellpadding="1">
+                                                <tbody>
+                                                    <tr>
+                                                        <th style="width:92px">
+                                                            集團代號：
+                                                        </th>
+                                                        <td colspan="4">
+                                                            <div class="xdialog">
+                                                                <input id="CUST_BLOC_CODE" name="CUST_BLOC_CODE" style="width:83px" maxlength='6'/>
+                                                            <input type="hidden" id="hdKeyword" />
+                                                            <input name="BLOC_SNAME" type="text" id="BLOC_SNAME" class="display" size="10" readonly="readonly" tabindex="999"
+                                                                style="width: 190px;" value="@(Model.Detail != null ? Model.Detail.BLOC_SNAME : "")"/>
+                                                            </div>
+                                                        </td>
+                                                        <th style="width:104px">
+                                                            <span class="noCustSts" style="color: red">*</span>
+                                                            租賃公會行業別：
+                                                        </th>
+                                                        <td style="width:104px">
+                                                            <select name="CUST_UNION" id="CUST_UNION" style="width: 95px;" tabindex="999">
+                                                                @*<option value=" ">請選擇..</option>
+                                                                @foreach (var x in Model.CUST_UNION)
+                                                                {
+                                                                    <option value='@x.Value'>@x.Text.Trim() </option>
+                                                                }*@
+                                                            </select>
+                                                        </td>
+                                                        <th style="width:72px">
+                                                            <span class="noCustSts" style="color: red">*</span>
+                                                            行業別：
+                                                        </th>
+                                                        <td>
+                                                            <select name="CUST_TYPE_CODE" id="CUST_TYPE_CODE" style="width: 95px;" tabindex="999">
+                                                                @*<option value=" ">請選擇..</option>
+                                                                @foreach (var x in Model.CUST_TYPE_CODE)
+                                                                {
+                                                                    <option value='@x.Value'>@x.Text.Trim() </option>
+                                                                }*@
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            客戶代號：
+                                                        </th>
+                                                        <td style="width:90px">
+                                                            <input name="CUST_NO" type="text" maxlength="10" id="CUST_NO" size="10" tabindex="999" 
+                                                                   value="@(Model.Detail != null ? Model.Detail.CUST_NO : "")" >
+                                                        </td>
+                                                        <th style="width:100px">
+                                                            <span style="color: red;">*</span>
+                                                            客戶名稱：
+                                                        </th>
+                                                        <td colspan="4">
+                                                            <input name="CUST_NAME" type="text" maxlength="80" id="CUST_NAME" size="20" style="width: 302px;"
+                                                                   value="@(Model.Detail != null ? Model.Detail.CUST_NAME : "")" tabindex="999">
+                                                        </td>
+                                                        <th>
+                                                            <span style="color: red">*</span>
+                                                            客戶簡稱：
+                                                        </th>
+                                                        <td>
+                                                            <input name="CUST_SNAME" type="text" maxlength="10" id="CUST_SNAME" size="10" style="width: 91px;"
+                                                                   value="@(Model.Detail != null ? Model.Detail.CUST_SNAME : "")" tabindex="999">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            統一編號：
+                                                        </th>
+                                                        <td>
+                                                            <input name="UNIF_NO" type="text" maxlength="10" id="UNIF_NO" class="chkGUI" tabindex="999"
+                                                                size="10" value="@(Model.Detail != null ? Model.Detail.UNIF_NO : "")">
+                                                        </td>
+                                                        <th>
+                                                            英文名稱：
+                                                        </th>
+                                                        <td colspan="4">
+                                                            <input name="EN_NAME" type="text" id="EN_NAME" maxlength="20" size="20" style="width: 302px;" tabindex="999"
+                                                                   value="@(Model.Detail != null ? Model.Detail.EN_NAME : "")">
+                                                        </td>
+                                                        <th>
+                                                            英文簡稱：
+                                                        </th>
+                                                        <td>
+                                                            <input name="EN_SNAME" type="text" id="EN_SNAME" maxlength="20" size="15" style="width: 91px;" tabindex="999"
+                                                                   value="@(Model.Detail != null ? Model.Detail.EN_SNAME : "")">
+                                                        </td>
+                                                        <td>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            負責人：
+                                                        </th>
+                                                        <td>
+                                                            <input name="TAKER" type="text" maxlength="20" id="TAKER" size="10"  tabindex="999"
+                                                                   value="@(Model.Detail != null ? Model.Detail.TAKER : "")">
+                                                        </td>
+                                                        <th>
+                                                            負責人ID：
+                                                        </th>
+                                                        <td colspan="2">
+                                                            <input name="TAKER_ID" type="text" maxlength="10" id="TAKER_ID" size="10" class="chkGUI" tabindex="999"
+                                                                   style="width: 92px;" value="@(Model.Detail != null ? Model.Detail.TAKER_ID : "")">
+                                                        </td>
+                                                        <th>
+                                                            創業日期：
+                                                        </th>
+                                                        <td>
+                                                            <div class="xdate">
+                                                                <input id="txtFLOT_DATE" name="FLOT_DATE" type="text" class="easyui-datebox" style="width: 95px;" tabindex="999"
+                                                                       value="@(Model.Detail != null ? Model.Detail.FLOT_DATE : "")">
+                                                            </div>
+                                                        </td>
+                                                        <th>
+                                                            設立日期：
+                                                        </th>
+                                                        <td>
+                                                            <div class="xdate">
+                                                                <input id="txtBUILD_DATE" name="BUILD_DATE" type="text" class="easyui-datebox" style="width: 95px;" tabindex="999"
+                                                                       value="@(Model.Detail != null ? Model.Detail.BUILD_DATE : "")">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            電話一：
+                                                        </th>
+                                                        <td>
+                                                            <input name="PHONE1" type="text" maxlength="15" id="PHONE1" size="10" tabindex="999" 
+                                                                   value="@(Model.Detail != null ? Model.Detail.PHONE1 : "")">
+                                                        </td>
+                                                        <th>
+                                                            電話二：
+                                                        </th>
+                                                        <td colspan="2">
+                                                            <input name="PHONE2" type="text" maxlength="15" id="PHONE2" size="12" style="width: 92px;" tabindex="999"
+                                                                   value="@(Model.Detail != null ? Model.Detail.PHONE2 : "")">
+                                                        </td>
+                                                        <th>
+                                                            傳真：
+                                                        </th>
+                                                        <td>
+                                                            <input name="FACSIMILE" type="text" maxlength="15" id="FACSIMILE" size="12" style="width: 91px;" tabindex="999"
+                                                                   value="@(Model.Detail != null ? Model.Detail.FACSIMILE : "")">
+                                                        </td>
+                                                        <th>
+                                                            員工人數：
+                                                        </th>
+                                                        <td>
+                                                            <input name="EMP_PSNS" type="text" id="EMP_PSNS" tabindex="999" style="width: 91px; text-align: right; margin: 0px"
+                                                                onkeyup="return ValidateInt(this,value)" onfocusout="this.value=parseMoney(this.value);"  
+                                                                 value="@(Model.Detail != null ? Model.Detail.EMP_PSNS : "")">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            <span class="noCustSts" style="color: red">*</span>
+                                                            營業登記地址：
+                                                        </th>
+                                                        <td colspan="5">
+                                                            <span id=" ZIP_CODE">
+                                                                <select name="RGT_CITY_CODE" id="RGT_CITY_CODE" style="width: 65px;" tabindex="999">
+                                                                    @*<option value=" ">請選擇..</option>
+                                                                    @foreach (var x in Model.CITY_CODE)
+                                                                    {
+                                                                        <option value='@x.Value'>@x.Text.Trim() </option>
+                                                                    }*@
+                                                                </select>
+                                                                <input type="hidden" name="hiddenRGT_CITY_CODE" id="hiddenRGT_CITY_CODE">
+                                                                <select name="RGT_ZIP_CODE" id="RGT_ZIP_CODE" style="width: 65px;" tabindex="999">
+                                                                </select>
+                                                                <input name="SALES_RGT_ADDR" type="text" maxlength="40" id="SALES_RGT_ADDR" size="50" tabindex="999" 
+                                                                    style="width: 250px;" value="@(Model.Detail != null ? Model.Detail.SALES_RGT_ADDR : "")">
+                                                            </span>
+                                                        </td>
+                                                        <th colspan="2">
+                                                            登記資本額(萬元)：
+                                                        </th>
+                                                        <td>
+                                                            <input name="RGT_CAPT_AMT" type="text" id="RGT_CAPT_AMT"  tabindex="999" style="width: 91px; text-align: right; margin: 0px"
+                                                                onkeyup="return ValidateFloat(this,value)" onfocusout="this.value=parseMoney(this.value);"
+                                                                 value="@(Model.Detail != null ? Model.Detail.RGT_CAPT_AMT : "0")">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            <span class="noCustSts" style="color: red">*</span>
+                                                            連絡地址：
+                                                        </th>
+                                                        <td colspan="5">
+                                                            <span id="cZIPCODE">
+                                                                <select name="CITY_CODE" id="CITY_CODE" style="width: 65px;" tabindex="999">
+                                                                    <option value=" ">請選擇..</option>
+                                                                    @*@foreach (var x in Model.CITY_CODE)
+                                                                    {
+                                                                        <option value='@x.Value'>@x.Text.Trim() </option>
+                                                                    }*@
+                                                                </select>
+                                                                <input type="hidden" name="hiddencCityCode" id="hiddencCityCode">
+                                                                <select name="ZIP_CODE" id="ZIP_CODE" style="width: 65px;" tabindex="999">
+                                                                </select>
+                                                                <input name="CTAC_ADDR" type="text" maxlength="40" id="CTAC_ADDR" size="31" tabindex="999" 
+                                                                style="width: 250px;" value="@(Model.Detail != null ? Model.Detail.CTAC_ADDR : "")"></span>
+                                                        </td>
+                                                        <th colspan="2">
+                                                            <span class="noCustSts" style="color: red">*</span>
+                                                            實收資本額(萬元)：
+                                                        </th>
+                                                        <td>
+                                                            <input name="REAL_CAPT_AMT" type="text" id="REAL_CAPT_AMT" tabindex="999" style="width: 91px; text-align: right; margin: 0px" 
+                                                                onkeyup="return ValidateFloat(this,value)" onfocusout="this.value=parseMoney(this.value);" 
+                                                                value="@(Model.Detail != null ? Model.Detail.REAL_CAPT_AMT : "")">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            聯絡人：
+                                                        </th>
+                                                        <td>
+                                                            <input name="CONTACT" type="text" maxlength="12" id="CONTACT" size="10" tabindex="999"
+                                                            value="@(Model.Detail != null ? Model.Detail.CONTACT : "")">
+                                                        </td>
+                                                        <th>
+                                                            聯絡人職稱：
+                                                        </th>
+                                                        <td colspan="2">
+                                                            <input name="CTAC_TITLE" type="text" maxlength="20" id="CTAC_TITLE" size="15" style="width: 92px;" tabindex="999"
+                                                            value="@(Model.Detail != null ? Model.Detail.CTAC_TITLE : "")">
+                                                        </td>
+                                                        <th>
+                                                            聯絡人電話：
+                                                        </th>
+                                                        <td>
+                                                            <input name="CTAC_EXT" type="text" maxlength="5" id="CTAC_EXT" size="5" style="width: 91px;" tabindex="999"
+                                                            value="@(Model.Detail != null ? Model.Detail.CTAC_EXT : "")">
+                                                        </td>
+                                                        <th>
+                                                            <span class="noCustSts" style="color: red">*</span>
+                                                            國別
+                                                        </th>
+                                                        <td>
+                                                            <select name="NATIONALITY" id="NATIONALITY" style="width: 95px;" tabindex="999">
+                                                                @*<option value=" ">請選擇..</option>
+                                                                @foreach (var x in Model.NATIONALITY)
+                                                                {
+                                                                    <option value='@x.Value'>@x.Text.Trim() </option>
+                                                                }*@
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            聯絡人2：
+                                                        </th>
+                                                        <td>
+                                                            <input name="CONTACT2" type="text" maxlength="12" id="CONTACT2" size="10" tabindex="999"
+                                                            value="@(Model.Detail != null ? Model.Detail.CONTACT2 : "")">
+                                                        </td>
+                                                        <th>
+                                                            聯絡人職稱2：
+                                                        </th>
+                                                        <td colspan="2">
+                                                            <input name="CTAC_TITLE2" type="text" maxlength="20" id="CTAC_TITLE2" size="15" style="width: 92px;" tabindex="999"
+                                                            value="@(Model.Detail != null ? Model.Detail.CTAC_TITLE2 : "")">
+                                                        </td>
+                                                        <th>
+                                                            聯絡人電話2：
+                                                        </th>
+                                                        <td>
+                                                            <input name="CTAC_EXT2" type="text" maxlength="5" id="CTAC_EXT2" size="5" style="width: 91px;" tabindex="999"
+                                                            value="@(Model.Detail != null ? Model.Detail.CTAC_EXT2 : "")">
+                                                        </td>
+                                                        <th>
+                                                            股票代號：
+                                                        </th>
+                                                        <td>
+                                                            <input name="STOCKCODE" type="text" maxlength="4" id="STOCKCODE" size="4" style="width: 91px;" tabindex="999"
+                                                            value="@(Model.Detail != null ? Model.Detail.STOCKCODE : "")">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            <span class="noCustSts" style="color: red">*</span>
+                                                            組織型態：
+                                                        </th>
+                                                        <td>
+                                                            <select name="ORG_TYPE" id="ORG_TYPE" style="width: 83px;" tabindex="999">
+                                                                @*<option value=" "></option>
+                                                                @foreach (var x in Model.ORG_TYPE)
+                                                                {
+                                                                    <option value='@x.Value'>@x.Text.Trim() </option>
+                                                                }*@
+                                                            </select>
+                                                        </td>
+                                                        <th>
+                                                            發票開立方式：
+                                                        </th>
+                                                        <td>
+                                                            <select name="INVOICE" id="INVOICE" tabindex="999">
+                                                                @*@foreach (var x in Model.INVOICE)
+                                                                {
+                                                                    <option value='@x.Value'>@x.Text.Trim() </option>
+                                                                }*@
+                                                            </select>
+                                                        </td>
+                                                        <th colspan="2" style="vertical-align: top; padding-top: 3px">
+                                                            是否成交客戶
+                                                        </th>
+                                                        <td>
+                                                            <span disabled="disabled">
+                                                                @{
+                                                                    var IS_TRANSACTION = false;
+                                                                    if (Model.Detail != null && Model.Detail.STOCKCODE == "Y")
+                                                                    {
+                                                                        IS_TRANSACTION = true;
+                                                                    }
+                                                                }
+                                                                <input id="IS_TRANSACTION" type="checkbox" name="IS_TRANSACTION" disabled="disabled" tabindex="999"
+                                                                    checked="@(IS_TRANSACTION)">
+                                                            </span>
+                                                        </td>
+                                                        <th style="vertical-align: top; padding-top: 3px">
+                                                            存為潛在客戶
+                                                        </th>
+                                                        <td>
+                                                            @{
+                                                                var CUST_STS = false;
+                                                                if (Model.Detail != null && Model.Detail.CUST_STS == "Y")
+                                                                {
+                                                                    CUST_STS = true;
+                                                                }
+                                                            }
+                                                            <input id="CUST_STS" type="checkbox" name="CUST_STS" checked="@(CUST_STS)" tabindex="999">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="vertical-align: top; padding-top: 3px">
+                                                            廉潔協定
+                                                        </th>
+                                                        <td>
+                                                            @{
+                                                                var IS_HONEST_AGREEMENT = false;
+                                                                if (Model.Detail != null && Model.Detail.IS_HONEST_AGREEMENT == "Y")
+                                                                {
+                                                                    IS_HONEST_AGREEMENT = true;
+                                                                }
+                                                            }
+                                                            <input id="IS_HONEST_AGREEMENT" type="checkbox" name="IS_HONEST_AGREEMENT" checked="@(IS_HONEST_AGREEMENT)" tabindex="999">
+                                                        </td>
+                                                        <th style="vertical-align: top; padding-top: 3px">
+                                                            保密協定
+                                                        </th>
+                                                        <td colspan="2">
+                                                            @{
+                                                                var IS_SECRET_PROMISE = false;
+                                                                if (Model.Detail != null && Model.Detail.IS_SECRET_PROMISE == "Y")
+                                                                {
+                                                                    IS_SECRET_PROMISE = true;
+                                                                }
+                                                            }
+                                                            <input id="IS_SECRET_PROMISE" type="checkbox" name="IS_SECRET_PROMISE" checked="@(IS_SECRET_PROMISE)" tabindex="999">
+                                                        </td>
+                                                        <th style="vertical-align: top; padding-top: 3px">
+                                                            JCIC行業別
+                                                        </th>
+                                                        <td colspan="2">
+                                                            <input name="INDUSTRY_NO" type="text" readonly="readonly" id="INDUSTRY_NO" tabindex="999" class="display number" size="11" style="width: 91px;" 
+                                                            value="@(Model.Detail != null ? Model.Detail.INDUSTRY_NO : "")">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            營業用設備客戶
+                                                        </th>
+                                                        <td>
+                                                            @{
+                                                                var IS_BIZ_CUST = false;
+                                                                if (Model.Detail != null && Model.Detail.IS_BIZ_CUST == "Y")
+                                                                {
+                                                                    IS_BIZ_CUST = true;
+                                                                }
+                                                            }
+                                                            <input id="IS_BIZ_CUST" type="checkbox" name="IS_BIZ_CUST" checked="@(IS_BIZ_CUST)" tabindex="999">
+                                                        </td>
+                                                        <th style="vertical-align: top; padding-top: 3px">
+                                                            車行
+                                                        </th>
+                                                        <td colspan="2">
+                                                            @{
+                                                                var Is_Car_License = false;
+                                                                if (Model.Detail != null && Model.Detail.IS_CAR_LICENSE == "Y")
+                                                                {
+                                                                    Is_Car_License = true;
+                                                                }
+                                                            }
+                                                            <input id="Is_Car_License" type="checkbox" name="Is_Car_License" checked="@(Is_Car_License)" tabindex="999">
+                                                        </td>
+                                                        <th>
+                                                            實際行主：
+                                                        </th>
+                                                        <td>
+                                                            <input name="MANAGER" type="text" maxlength="10" id="MANAGER" size="28" style="width: 91px;" tabindex="999"
+                                                            value="@(Model.Detail != null ? Model.Detail.MANAGER : "")">
+                                                        </td>
+                                                        <th>
+                                                            行主ID：
+                                                        </th>
+                                                        <td>
+                                                            <input name="MANAGER_ID" type="text" maxlength="10" id="MANAGER_ID" size="28" class="chkGUI" tabindex="999"
+                                                            style="width: 91px;" value="@(Model.Detail != null ? Model.Detail.MANAGER_ID : "")">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            <span class="noCustSts" style="color: red">*</span>
+                                                            主要營業項目：
+                                                        </th>
+                                                        <td colspan="8">
+                                                            <input name="MAIN_BUS_ITEM" type="text" maxlength="40" id="MAIN_BUS_ITEM" size="28" style="width: 671px;;" tabindex="999"
+                                                            value="@(Model.Detail != null ? Model.Detail.MAIN_BUS_ITEM : "")">
+                                                        </td>
+                                                     </tr>
+                                                     <tr>
+                                                        <th>
+                                                            母公司名：
+                                                        </th>
+                                                        <td colspan="4">
+                                                            <input name="PARENT_COMP_NAME" type="text" maxlength="80" id="PARENT_COMP_NAME" size="28" style="width: 285px;" tabindex="999"
+                                                            value="@(Model.Detail != null ? Model.Detail.PARENT_COMP_NAME : "")">
+                                                        </td>
+                                                        <th>
+                                                            母公司股票代號：
+                                                        </th>
+                                                        <td colspan="3">
+                                                            <input name="PARENT_COMP_STOCK_CODE" type="text" maxlength="4" id="PARENT_COMP_STOCK_CODE" style="width: 269px;" size="4" tabindex="999"
+                                                            value="@(Model.Detail != null ? Model.Detail.PARENT_COMP_STOCK_CODE : "")">
+                                                        </td>
+                                                     </tr>
+                                                     <tr>
+                                                        <th colspan="1">
+                                                            <h4>
+                                                                客戶背景資料</h4>
+                                                        </th>
+                                                        <td colspan="8">
+                                                            <textarea name="BACKGROUND" rows="4" cols="20" maxlength="250" id="BACKGROUND" size="30" style="width: 668px;"
+                                                                tabindex="999">@(Model.Detail != null ? Model.Detail.BACKGROUND : "") 
+                                                            </textarea>
+                                                        </td>
+                                                     </tr>
+                                                     <tr>
+                                                        <th>
+                                                            特殊客戶條件：
+                                                        </th>
+                                                        <td colspan="2">
+                                                            <select name="SPEC_COND" id="SPEC_COND" tabindex="999">
+                                                                <option value=" "></option>
+                                                                @*@foreach (var x in Model.SPEC_COND)
+                                                                {
+                                                                    <option value='@x.Value'>@x.Text.Trim() </option>
+                                                                }*@
+                                                            </select>
+                                                        </td>
+                                                        <th colspan="2">
+                                                            <h4>
+                                                                已核淮額度</h4>
+                                                        </th>
+                                                        <th>
+                                                            租賃分期案：
+                                                        </th>
+                                                        <td colspan="3">
+                                                            <input name="GEN_CURR_QUOTA" type="text" readonly="readonly" id="GEN_CURR_QUOTA" tabindex="999"
+                                                                class="display number" size="11" style="width: 268px;" 
+                                                            value="@(Model.Detail != null ? Model.Detail.GEN_CURR_QUOTA : "")">
+                                                        </td>
+                                                     </tr>
+                                                     <tr>
+                                                        <th rowspan="2" style="vertical-align: top; padding-top: 3px">
+                                                            有條件授權
+                                                        </th>
+                                                        <td colspan="4" rowspan="2" style="vertical-align: top; text-align: left">
+                                                            @{
+                                                                var IS_COND_AUTH = false;
+                                                                if (Model.Detail != null && Model.Detail.IS_COND_AUTH == "Y")
+                                                                {
+                                                                    IS_COND_AUTH = true;
+                                                                }
+                                                            }
+                                                            <input id="IS_COND_AUTH" type="checkbox" name="IS_COND_AUTH" checked="@IS_COND_AUTH" tabindex="999">
+                                                        </td>
+                                                        <th>
+                                                            VP專案：
+                                                        </th>
+                                                        <td colspan="3">
+                                                            <input name="VP_CURR_QUOTA" type="text" readonly="readonly" id="VP_CURR_QUOTA" class="display number" tabindex="999"
+                                                                size="11" style="width: 268px;" value="@(Model.Detail != null ? Model.Detail.VP_CURR_QUOTA : "")">
+                                                        </td>
+                                                     </tr>
+                                                     <tr>
+                                                        <th>
+                                                            帳款受讓案：
+                                                        </th>
+                                                        <td colspan="3">
+                                                            <input name="AR_CURR_QUOTA" type="text" readonly="readonly" id="AR_CURR_QUOTA" class="display number" tabindex="999"
+                                                                size="11" style="width: 268px;" value="@(Model.Detail != null ? Model.Detail.AR_CURR_QUOTA : "")">
+                                                        </td>
+                                                     </tr>
+                                                </tbody>
+                                            </table>
+                                            <div style="display: none">
+                                                <input name="USER_ID" type="text" id="USER_ID">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right">
+                        <font color="red">請確認是否為營業用客戶！</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span id="upFunction">
+                        @if (Request.Params["WF0101"] != "true" && Request.Params["WE030"] != "true")
+                        {
+                            <div class="divButton" style="float: right; display: ">
+                                <input type="button" name="btnExit" value="返回" id="btnExit" class="button exit" onclick="window.location='@Url.Action("Index")'"
+                                 tabindex="999">
+                            </div>
+                        }
+                            <div class="divButton" style="float: right; display: ">
+                                <input type="button" name="btnSave" value="儲存" id="btnSave" class="button save" tabindex="999">
+                            </div>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </form>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        $("#USER_ID").val(parent.parent.$(".empNM > div")[0].innerText);
+
+        //----------------------DropdownList START----------------------
+        //租賃公會行業別
+        $.ajax({
+            url: '/Common/getCustUnion',
+            type: 'post',
+            cache: false,
+            async: false,
+            dataType: 'json',
+            success: function (data) {
+                if (data.Data.length > 0) {
+                    $('#CUST_UNION').empty();
+                    $('#CUST_UNION').append($('<option></option>').val('').text('請選擇..'));
+                    $.each(data.Data, function (i, item) {
+                        $('#CUST_UNION').append($('<option></option>').val(item.Value).text(item.Text));
+                    });
+                }
+            },
+            error: function (ex) {
+                alert("ERROR!!" + ex)
+            }
+        });
+
+        //行業別
+        $.ajax({
+            url: '/Common/getCustTypeCode',
+            type: 'post',
+            cache: false,
+            async: false,
+            dataType: 'json',
+            success: function (data) {
+                if (data.Data.length > 0) {
+                    $('#CUST_TYPE_CODE').empty();
+                    $('#CUST_TYPE_CODE').append($('<option></option>').val('').text('請選擇..'));
+                    $.each(data.Data, function (i, item) {
+                        $('#CUST_TYPE_CODE').append($('<option></option>').val(item.Value).text(item.Text));
+                    });
+                }
+            },
+            error: function (ex) {
+                alert("ERROR!!" + ex)
+            }
+        });
+
+        //縣市
+        $.ajax({
+            url: '/Common/getCityCode',
+            type: 'post',
+            cache: false,
+            async: false,
+            dataType: 'json',
+            success: function (data) {
+                if (data.Data.length > 0) {
+                    $('#CITY_CODE').empty();
+                    $('#CITY_CODE').append($('<option></option>').val('').text('請選擇..'));
+                    $.each(data.Data, function (i, item) {
+                        $('#CITY_CODE').append($('<option></option>').val(item.Value).text(item.Text));
+                    });
+
+                    $('#RGT_CITY_CODE').empty();
+                    $('#RGT_CITY_CODE').append($('<option></option>').val('').text('請選擇..'));
+                    $.each(data.Data, function (i, item) {
+                        $('#RGT_CITY_CODE').append($('<option></option>').val(item.Value).text(item.Text));
+                    });
+                }
+            },
+            error: function (ex) {
+                alert("ERROR!!" + ex)
+            }
+        });
+
+        //國別
+        $.ajax({
+            url: '/Common/getNationality',
+            type: 'post',
+            cache: false,
+            async: false,
+            dataType: 'json',
+            success: function (data) {
+                if (data.Data.length > 0) {
+                    $('#NATIONALITY').empty();
+                    $('#NATIONALITY').append($('<option></option>').val('').text('請選擇..'));
+                    $.each(data.Data, function (i, item) {
+                        $('#NATIONALITY').append($('<option></option>').val(item.Value).text(item.Text));
+                    });
+                }
+            },
+            error: function (ex) {
+                alert("ERROR!!" + ex)
+            }
+        });
+
+        //組織型態
+        $.ajax({
+            url: '/Common/getOrgType',
+            type: 'post',
+            cache: false,
+            async: false,
+            dataType: 'json',
+            success: function (data) {
+                if (data.Data.length > 0) {
+                    $('#ORG_TYPE').empty();
+                    $('#ORG_TYPE').append($('<option></option>').val('').text(' '));
+                    $.each(data.Data, function (i, item) {
+                        $('#ORG_TYPE').append($('<option></option>').val(item.Value).text(item.Text));
+                    });
+                }
+            },
+            error: function (ex) {
+                alert("ERROR!!" + ex)
+            }
+        });
+
+        //發票開立方式
+        $.ajax({
+            url: '/Common/getInvoice',
+            type: 'post',
+            cache: false,
+            async: false,
+            dataType: 'json',
+            success: function (data) {
+                if (data.Data.length > 0) {
+                    $('#INVOICE').empty();
+                    $.each(data.Data, function (i, item) {
+                        $('#INVOICE').append($('<option></option>').val(item.Value).text(item.Text));
+                    });
+                }
+            },
+            error: function (ex) {
+                alert("ERROR!!" + ex)
+            }
+        });
+
+        //特殊客戶條件
+        $.ajax({
+            url: '/Common/getSpecCond',
+            type: 'post',
+            cache: false,
+            async: false,
+            dataType: 'json',
+            success: function (data) {
+                if (data.Data.length > 0) {
+                    $('#SPEC_COND').empty();
+                    $('#SPEC_COND').append($('<option></option>').val('').text(' '));
+                    $.each(data.Data, function (i, item) {
+                        $('#SPEC_COND').append($('<option></option>').val(item.Value).text(item.Text));
+                    });
+                }
+            },
+            error: function (ex) {
+                alert("ERROR!!" + ex)
+            }
+        });
+        //----------------------DropdownList END------------------------
+
+        //----------------------EVENT  START----------------------------
+        //客戶名稱->簡稱
+        $("#CUST_NAME").on('blur', function () {
+            $("#CUST_SNAME").val($("#CUST_NAME").val().substring(0, 4));
+        });
+
+        //非潛在客戶
+        $("#CUST_STS").change(function () {
+            if ($(this).is(":checked")) {
+                $(".noCustSts").hide();
+            }
+            else {
+                $(".noCustSts").show();
+            }
+        });
+
+        //檢核統編
+        $(".chkGUI").on('blur', function () {
+            if (this.value != "") {
+                var name = "";
+                if ($(this)[0].id == "UNIF_NO") {
+                    name = "統一編號";
+                }
+                else if ($(this)[0].id == "TAKER_ID") {
+                    name = "負責人ID";
+                }
+                else {
+                    name = "行主ID";
+                }
+
+                if (chkIDandGUI(this, name)) {
+                    //新增模式才變更客戶代號
+                    if ($(this)[0].id == "UNIF_NO" && (GetURLParameter("ID") == undefined || GetURLParameter("ID") == "")) {
+                        $("#CUST_NO").val(this.value);
+                    }
+                }
+                else {
+                    this.focus();
+                }
+            }
+        });
+
+        //CityCode連動
+        $('#RGT_CITY_CODE').change(function () {
+            ChangeCityCode("RGT_CITY_CODE", "RGT_ZIP_CODE");
+        });
+        $("#CITY_CODE").change(function () {
+            ChangeCityCode("CITY_CODE", "ZIP_CODE");
+        });
+
+        //ZipCode
+        $('#RGT_ZIP_CODE').change(function () {
+            if ($.trim($("#SALES_RGT_ADDR").val()) == "")
+                $("#SALES_RGT_ADDR").val($.trim($("#RGT_CITY_CODE option:selected").text()) + $.trim($("#RGT_ZIP_CODE option:selected").text().split(" ")[0]));
+        });
+        $("#ZIP_CODE").change(function () {
+            if ($.trim($("#CTAC_ADDR").val()) == "")
+                $("#CTAC_ADDR").val($.trim($("#CITY_CODE option:selected").text()) + $.trim($("#ZIP_CODE option:selected").text().split(" ")[0]));
+        });
+
+        //日期格式
+        $("#txtFLOT_DATE").datebox({
+            formatter: function (date) { return date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate(); },
+            parser: function (date) {
+                var t = Date.parse(date);
+                if (!isNaN(t)) {
+                    return new Date(t);
+                }
+                else {
+                    return new Date();
+                }
+            }
+        });
+        $("#txtBUILD_DATE").datebox({
+            formatter: function (date) { return date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate(); },
+            parser: function (date) {
+                var t = Date.parse(date);
+                if (!isNaN(t)) {
+                    return new Date(t);
+                }
+                else {
+                    return new Date();
+                }
+            }
+        });
+
+        //數字-小數一位
+        $(".chkID").on('blur', function () {
+            isIDNo(this);
+        });
+
+        $(".maxlen").on('blur', function () {
+            substrForChinese($(this), $(this).attr('maxLength'));
+        });
+
+        $("#btnSave").click(function () {
+            window.parent.parent.Loading();
+
+
+            //檢核
+            var mode = "";
+            if (GetURLParameter("ID") == undefined || GetURLParameter("ID") == "" || GetURLParameter("WF0101") == "true") {
+                mode = "ADD";
+            }
+            else {
+                mode = "EDIT";
+            }
+
+
+            var isOK = DataCheck(mode);
+            if (isOK) {
+                $('#CUST_BLOC_CODE').val($('#CUST_BLOC_CODE').next().children()[2].value);
+
+                $('#formData').ajaxSubmit({
+                    url: '@Url.Action("Save")',
+                    success: function (respText) {
+                        if (respText.Error == "Success") {
+                            window.parent.parent.closeLoading();
+
+                            showProcessMessage(respText.Message, false);
+
+                            if (GetURLParameter("WF0101") == "true" || GetURLParameter("WE030") == "true") {
+                                window.parent.setData('Custom', respText.CUST_NO, respText.CUST_NAME);
+                            }
+                            else {
+                                window.location = '@Url.Action("Index")?Search=Y';
+                            }
+                        }
+                        else {
+                            window.parent.parent.closeLoading();
+                            showProcessMessage(respText.Message, true);
+                        }
+                    },
+                    error: function () {
+                        window.parent.parent.closeLoading();
+                        alert("ERROR!!")
+                    }
+                });
+            }
+            else {
+                window.parent.parent.closeLoading();
+            }
+        });
+        //----------------------EVENT  END----------------------------
+
+
+        //初始化 
+        init();
+    });    
+       
+    function init()  
+    {  
+        inputs = $('textarea,select:enabled:not([readonly]),input:enabled:not([readonly=readonly]):not([readonly]):not([type=hidden]):not([type=submit]):not([type=button]):not(".easyui-datebox")');
+        $('textarea,select:enabled:not([readonly]),input:enabled:not([readonly=readonly]):not([readonly]):not([type=hidden]):not([type=button]):not([type=submit]):not(".easyui-datebox")').keydown(onkeydown);
+
+        setComboGrid();
+
+        //設定必填欄位
+        $(".noCustSts").show();
+
+        if(GetURLParameter("ID") == undefined || GetURLParameter("ID") == "")
+        {
+            //新增模式
+            $("#INVOICE").val("3");
+            $("#EMP_PSNS").val("0");
+            $("#RGT_CAPT_AMT").val("0");
+            $("#REAL_CAPT_AMT").val("0");
+            $("#hMode").val("ADD");
+        }
+        else
+        {
+            //修改模式
+            $("#CUST_NO").attr("readonly","readonly");
+            $("#CUST_NO").attr("class","display");
+            $("#RGT_CAPT_AMT").val(parseMoney($("#RGT_CAPT_AMT").val()));
+            $("#REAL_CAPT_AMT").val(parseMoney($("#REAL_CAPT_AMT").val()));
+            $("#hMode").val("EDIT");
+
+            //下拉式選單
+            $("#RGT_CITY_CODE").val('@(Model.Detail.RGT_CITY_CODE)');
+            $("#CITY_CODE").val('@(Model.Detail.CITY_CODE)');
+
+            $("#RGT_CITY_CODE").trigger("change");
+            $("#CITY_CODE").trigger("change");
+            $("#RGT_ZIP_CODE").val('@(Model.Detail.RGT_ZIP_CODE)');
+            $("#ZIP_CODE").val('@(Model.Detail.ZIP_CODE)');
+
+            $("#CUST_UNION").val('@(Model.Detail.CUST_UNION)');
+            $("#CUST_TYPE_CODE").val('@(Model.Detail.CUST_TYPE_CODE)');
+            $("#NATIONALITY").val('@(Model.Detail.NATIONALITY)');
+            $("#ORG_TYPE").val('@(Model.Detail.ORG_TYPE)');
+            $("#INVOICE").val('@(Model.Detail.INVOICE)');
+            $("#SPEC_COND").val('@(Model.Detail.SPEC_COND)');
+
+            $('#CUST_BLOC_CODE').combogrid("setValue", '@(Model.Detail.CUST_BLOC_CODE)');
+            $('#hdKeyword').val('@(Model.Detail.CUST_BLOC_CODE)');
+
+            if('@(Model.Detail.CUST_STS)' == "Y") 
+            {
+                $(".noCustSts").hide();
+            }
+        }
+    }
+    
+    function setComboGrid()
+    {
+        $('#CUST_BLOC_CODE').combogrid({
+            panelHeight:360,
+            panelWidth: 500,
+            idField: 'KEY_NO',
+            textField: 'KEY_NO',
+            url: '/WE010/getOrBloc',
+            fitColumns: true,
+            striped: true,
+            editable: true,
+            pagination: true,           //是否分頁
+            rownumbers: true,           //序號
+            collapsible: false,         
+            method: 'post',
+            columns: [[
+                        { field: 'KEY_NO', title: '集團代號', width: 120 },
+                        { field: 'BLOC_SNAME', title: '集團簡稱', width: 150 },
+                        { field: 'BLOC_NAME', title: '集團名稱', width: 200 }
+                    ]],
+            keyHandler: {
+                up: function () {               //【向上鍵】
+                    //取得選中行
+                    var selected = $('#CUST_BLOC_CODE').combogrid('grid').datagrid('getSelected');
+                    if (selected) {
+                        //取得選中行的rowIndex
+                        var index = $('#CUST_BLOC_CODE').combogrid('grid').datagrid('getRowIndex', selected);
+                        //向上移動到第一行為止
+                        if (index > 0) {
+                            $('#CUST_BLOC_CODE').combogrid('grid').datagrid('selectRow', index - 1);
+                        }
+                    } else {
+                        var rows = $('#CUST_BLOC_CODE').combogrid('grid').datagrid('getRows');
+                        $('#CUST_BLOC_CODE').combogrid('grid').datagrid('selectRow', rows.length - 1);
+                    }
+                },
+                down: function () {             //【向下鍵】
+                    //取得選中行
+                    var selected = $('#CUST_BLOC_CODE').combogrid('grid').datagrid('getSelected');
+                    if (selected) {
+                        //取得選中行的rowIndex
+                        var index = $('#CUST_BLOC_CODE').combogrid('grid').datagrid('getRowIndex', selected);
+                        //向下移動到當頁最後一行為止
+                        if (index < $('#CUST_BLOC_CODE').combogrid('grid').datagrid('getData').rows.length - 1) {
+                            $('#CUST_BLOC_CODE').combogrid('grid').datagrid('selectRow', index + 1);
+                        }
+                    } else {
+                        $('#CUST_BLOC_CODE').combogrid('grid').datagrid('selectRow', 0);
+                    }
+                },
+                enter: function () {             //【Enter】
+                    //設定集團簡稱
+                    $('#BLOC_SNAME').val($('#CUST_BLOC_CODE').combogrid('grid').datagrid('getSelected').BLOC_SNAME);
+                    //選中後讓下拉表格消失
+                    $('#CUST_BLOC_CODE').combogrid('hidePanel');
+                },
+                query: function (keyword) {     //【搜尋】
+                    $('#CUST_BLOC_CODE').combogrid("grid").datagrid("reload", { 'BLOC_NO': keyword });
+                    $('#CUST_BLOC_CODE').combogrid("setValue", keyword);
+                }
+            },
+            onSelect: function () {              //選中處理
+                $('#BLOC_SNAME').val($('#CUST_BLOC_CODE').combogrid('grid').datagrid('getSelected').BLOC_SNAME);
+            },
+            onShowPanel: function () {
+                var strValue = $(".combo-text").val();
+                //設置查詢參數
+                var queryParams = $('#CUST_BLOC_CODE').combogrid("grid").datagrid('options').queryParams;
+                queryParams.keyword = strValue;
+                $('#CUST_BLOC_CODE').combogrid("grid").datagrid('options').queryParams = queryParams;
+                //重新載入
+                $('#CUST_BLOC_CODE').combogrid("grid").datagrid("reload");
+
+                $('#CUST_BLOC_CODE').combogrid("setValue", strValue);
+                //暫存查詢條件
+                $('#hdKeyword').val(strValue);
+            }
+        });
+
+        //取得分頁
+        var pager = $('#CUST_BLOC_CODE').combogrid('grid').datagrid('getPager');
+
+        if (pager) {
+            $(pager).pagination({
+                pageSize: 10,               //每頁顯示筆數
+                pageList: [10, 5, 3],       //每頁記錄筆數的列表
+                onSelectPage: function (pageNumber, pageSize) {
+                    //按分頁設定取得資料
+                    getData(pageNumber, pageSize);
+                    //設定表格的pageSize屬性
+                    $('#CUST_BLOC_CODE').combogrid("grid").datagrid('options').pageSize = pageSize;
+                    //查詢條件顯示在combogrid
+                    $('#CUST_BLOC_CODE').combogrid("setValue", $('#hdKeyword').val());
+                    $('#BLOC_SNAME').val('');
+                },
+                onRefresh: function (pageNumber, pageSize) {
+                    //按分頁設定取得資料
+                    getData(pageNumber, pageSize);
+                    //查詢條件顯示在combogrid
+                    $('#CUST_BLOC_CODE').combogrid("setValue", $('#hdKeyword').val());
+                    $('#BLOC_SNAME').val('');
+                }
+            });
+        }
+
+        var getData = function (page, rows) {
+            $.ajax({
+                type: "POST",
+                url: '/WE010/getOrBloc',
+                data: "page=" + page + "&rows=" + rows + "&BLOC_NO=" + $('#hdKeyword').val(),
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(textStatus);
+                    $.messager.progress('close');
+                },
+                success: function (data) {
+                    var obj = $.parseJSON(data);
+                    $('#CUST_BLOC_CODE').combogrid('grid').datagrid('loadData', obj);
+                }
+            });
+        };
+    }
+
+    function DataCheck(strStatus)
+    {
+        var strMessage = "";
+
+        if ($.trim($("#CUST_NAME").val()) == "")
+            strMessage += "[客戶名稱]";
+
+        if ($.trim($("#CUST_SNAME").val()) == "")
+            strMessage += "[客戶簡稱]";
+
+        //潛在客戶: 客戶名稱,客戶簡稱
+        //一般客戶: 客戶名稱,客戶簡稱,行業別,租賃公會行業別,登記地址,實收資本額,組織型態,發票方式,國別
+               
+        if ($("#CUST_STS")[0].checked == false )
+        {
+            if ($("#CUST_UNION").val() == null || $.trim($("#CUST_UNION").val()) == "")
+                strMessage += "[租賃公會行業別]";
+
+            if ($("#CUST_TYPE_CODE").val() == null || $.trim($("#CUST_TYPE_CODE").val()) == "")
+                strMessage += "[行業別]";
+                
+            var strRgtZipCode = $.trim($("#SALES_RGT_ADDR").val());
+            var strRgtAddr = $.trim($("#RGT_CITY_CODE option:selected").text()) + $.trim($("#RGT_ZIP_CODE option:selected").text().split(" ")[0]);
+            if (strRgtZipCode == "" || strRgtZipCode == strRgtAddr)
+                strMessage += "[營業登記地址]";
+
+            var strZipCode =  $.trim($("#CTAC_ADDR").val());
+            var strAddr = $.trim($("#CITY_CODE option:selected").text()) + $.trim($("#ZIP_CODE option:selected").text().split(" ")[0]);
+            if (strZipCode == "" || strZipCode == strAddr)
+                strMessage += "[連絡地址]";
+
+            if ( $("#REAL_CAPT_AMT").val() == null || $.trim($("#REAL_CAPT_AMT").val()) == "0")
+                strMessage += "[實收資本額]";
+
+            if ($("#NATIONALITY").val() == null || $.trim($("#NATIONALITY").val()) == "")
+                strMessage += "[國別]";
+
+            if ($("#ORG_TYPE").val() == null || $.trim($("#ORG_TYPE").val()) == "")
+                strMessage += "[組織型態]";
+
+            if ($.trim($("#MAIN_BUS_ITEM").val()) == "")
+                strMessage += "[主要營業項目]";
+        }
+
+        if (strMessage != "")
+        {
+            strMessage += " 必須輸入！";
+            setMessageBox(strMessage);
+            return false;
+        }
+
+        
+        var strRgtZipCode = $.trim($("#SALES_RGT_ADDR").val());
+        var strRgtAddr = $.trim($("#RGT_CITY_CODE option:selected").text()) + $.trim($("#RGT_ZIP_CODE option:selected").text().split(" ")[0]);
+        if (strRgtZipCode != "" && strRgtZipCode == strRgtAddr)
+        {
+            strMessage += "[營業登記地址]";
+        }
+
+        var strZipCode =  $.trim($("#CTAC_ADDR").val());
+        var strAddr = $.trim($("#CITY_CODE option:selected").text()) + $.trim($("#ZIP_CODE option:selected").text().split(" ")[0]);
+        if (strZipCode != "" && strZipCode == strAddr)
+        {
+            strMessage += "[連絡地址]";
+        }
+            
+        if (strMessage != "")
+        {
+            strMessage += " 不可只輸入縣市區域！";
+            setMessageBox(strMessage);
+            return false;
+        }
+
+        if($("#Is_Car_License")[0].checked == true)
+        {
+           if($.trim($("#MANAGER").val()) == "")
+           {
+                strMessage += "[實際行主]";
+           } 
+           
+           if($.trim($("#MANAGER_ID").val()) == "")
+           {
+                strMessage += "[行主ID]";
+           } 
+
+           if (strMessage != "")
+           {
+                strMessage += " 必須輸入！";
+                setMessageBox(strMessage);
+                return false;
+           }
+        }
+
+        //新增模式要提醒功能
+        if(GetURLParameter("ID") == undefined || GetURLParameter("ID") == "")
+        {
+            if($.trim($("#UNIF_NO").val()) == "")
+            {    
+                if (window.confirm("統編證號未輸入，將採自動編號，是否繼續？"))
+                {
+                    $("#chkINVOICE").value ="Y";
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        if ($.trim($("#UNIF_NO").val()).length != 8 && $("#INVOICE").val() == "3") {
+            strMessage += "統一編號不為 8 碼時, 發票方式不得為三聯式!!";
+            setMessageBox(strMessage);
+            return false;
+        }
+
+        var Message = false;
+        $.ajax({
+            url: '/WE010/checkDate',
+            data: { Mode: strStatus, UnifNo: $.trim($("#UNIF_NO").val()), CustNo: $.trim($("#CUST_NO").val()), CustName: $.trim($("#CUST_NAME").val()) },
+            type: 'post',
+            cache: false,
+            async: false,
+            dataType: 'json',
+            success: function (data) {
+                if (data.Status == "Success") {
+                    Message = true;
+                }
+                else if (data.Status == "confirm") {
+                    if (window.confirm(data.Massage)) {
+                        Message = true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+                else
+                {
+                    setMessageBox(data.Massage);
+                    Message = false;
+                }
+            },
+            error: function (ex) {
+                setMessageBox("檢核資料發生錯誤：" + ex);
+            }
+        });
+        return Message;
+    }
+    
+</script>

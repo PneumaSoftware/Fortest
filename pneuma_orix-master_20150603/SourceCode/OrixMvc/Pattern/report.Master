@@ -1,0 +1,38 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Pattern/content.Master" AutoEventWireup="true" CodeBehind="report.Master.cs" Inherits="OrixMvc.Pattern.report" %>
+<%@ MasterType VirtualPath="~/Pattern/content.Master" %>
+
+<asp:Content ContentPlaceHolderID="body" runat="server" ID="myBody">
+ <asp:SqlDataSource EnableViewState="true" ID="QuerySqlDataSource" ConnectionString="<%$ ConnectionStrings:myConnectionString%>"
+            runat="server"></asp:SqlDataSource>
+            
+        
+     <div class="printArea" >
+        <table cellpadding="2" cellspacing="2" style="margin-top:30px;margin-left:50px">
+            <tr>
+                <td style="vertical-align:bottom" >
+                    <asp:ContentPlaceHolder ID="editingArea" runat="server">
+                    </asp:ContentPlaceHolder>                                
+                </td>
+                <td style="text-align:right; vertical-align:bottom;">
+                <asp:UpdatePanel runat="server" ID="upPrint" RenderMode="Inline" UpdateMode="Conditional">
+                    <ContentTemplate>
+                    <div class="divButton" style="margin-bottom:10px;">
+                        <asp:Button runat="server" ID="btnPrint" CssClass="button print" Text="列印" OnClick="Print_Click"   />
+                    </div> 
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                </td>
+            </tr>
+                
+        </table>        
+    </div>
+     
+       <script language="javascript" type="text/javascript">
+        window.setTimeout("window.parent.closeLoading();", "");
+    </script>
+    
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="PopWindow" ID="myPopWindow" runat="server">
+    <asp:ContentPlaceHolder ID="PopWindow" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>

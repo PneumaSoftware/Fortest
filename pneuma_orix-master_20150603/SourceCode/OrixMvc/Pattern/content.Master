@@ -1,0 +1,386 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="content.Master.cs" Inherits="OrixMvc.Pattern.content" %>
+<%@ Register TagName="ocxDate"  TagPrefix="ocxControl" Src="~/ocxControl/ocxDate.ascx" %>
+    <%@ Register
+    Assembly="AjaxControlToolkit"
+    Namespace="AjaxControlToolkit"
+    TagPrefix="ajaxToolkit" %>
+    
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7;">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title><%=this.ProgramId%></title>
+    <link  href="../Style/content.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../jquery/style/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../jquery/style/icon.css">	
+   
+   
+	
+     <!--[if lt IE 9]> 
+    <script src="ClientSrc/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <form id="form1" runat="server">
+    <% if (this.bolShowProgram)
+       { %>
+    <div style="width:100%;height:19px;padding:4px;font-size:13px; font-weight:bold; background-color:#150643;color:White;font-family: Verdana, Tahoma, Arial, Helvetica Neue , Helvetica, Sans-Serif;">【<%=this.subProgramId%>】<%=this.subProgramName%></div>
+    <%} %>
+          
+    <!--  begin of draw Frame !-->
+    <iframe id="divWait" src="DialogFrame.html" frameborder="0" scrolling="no"
+    style="z-index: 100; 
+            width:0px;height: 0px;
+            position:absolute;
+            background-color:black;    
+            filter:alpha(opacity=60);
+            -moz-opacity:0.6;
+            opacity:0.6;" >
+    </iframe>
+    <!--  end of draw Frame !-->
+
+   <script language="javascript" type="text/javascript">// Before 
+/*@cc_on _d=document;eval('var document=_d')@*/ 
+
+
+    </script>
+    <script type='text/javascript' src='ClientSrc/ClientCheck.js'></script>
+	 <script type='text/javascript' src='JQuery/jquery-1.8.0.min.js'></script>    
+    <script type='text/javascript' src='JQuery/jquery.easyui.min.js'></script>
+
+    
+    <ajaxToolkit:ToolkitScriptManager runat="server" ID="ScriptManager1" EnableScriptGlobalization="true" EnableScriptLocalization="true" ></ajaxToolkit:ToolkitScriptManager>    
+    <div id="divBody">        
+        <asp:ContentPlaceHolder ID="body" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    <script language="javascript" type="text/javascript">
+    
+ 
+// Define a local copy of jQuery
+
+/*
+
+(function( window, undefined ) {
+
+    var jQuery = (function() {
+
+        var jQuery = function( selector, context ) {
+                return new jQuery.fn.init( selector, context );
+            };
+
+       _jQuery = window.jQuery;
+
+	// Map over the $ in case of overwrite
+	_$ = window.$;
+
+	// Use the correct document accordingly with window argument (sandbox)
+	document = window.document;
+
+
+        return (window.jQuery = window.$ = jQuery);
+
+    })();
+
+})(window);
+
+*/
+    </script>
+    
+       
+    
+     <div  id="divPopWindow" class="divPopWindow">
+        <div id="close" onclick="window.parent.closePopUpWindow();"><img  title="關閉" src="../Images/close.png" alt="關閉"  /></div>
+        <asp:ContentPlaceHolder id="PopWindow" runat="server" ></asp:ContentPlaceHolder>
+    </div>
+    
+    <div  id="w" style="display:none" class="easyui-window" title="請輸入欄位說明："  data-options="modal:true,closed:true,iconCls:'icon-save',minimizable:false,maximizable:false,resizable:false,shadow:false" style="width:330px;height:155px;padding:5px;top:160px;left:190px;">
+        <div class="easyui-layout" data-options="fit:true">            
+            <div data-options="region:'center'" style="padding:0px;height:30px">
+                <textarea id="memo" rows="4" style="width:295px"></textarea>
+                <div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">
+                <a class="easyui-linkbutton"  href="javascript:void(0)" onclick="javascript:savehint('儲存')">儲存</a>
+                <a class="easyui-linkbutton"  href="javascript:void(0)" onclick="$('#w').window('close')">取消</a>
+            </div>
+            </div>
+            
+        </div>
+    </div>
+    
+     <!--START for export excel!-->
+    <div style="display:none">
+       
+         <asp:GridView ID="dgExcel" runat="server" CellPadding="4" ForeColor="#333333"
+            GridLines="None" AllowPaging="false" EnableViewState="false" AutoGenerateColumns="false"  >
+            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <EditRowStyle BackColor="#999999" />
+            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+            
+        </asp:GridView>
+        <asp:TextBox runat="server" ID="qryColumn" ></asp:TextBox>
+        <asp:Button runat="server" ID="excel" BackColor="Transparent" BorderStyle="None"  OnClick="toExcel" Width="20" Height="18" style="cursor:pointer;background-image:url(images/excel.png)" />   
+    </div>
+    <!--END for export excel!-->
+    
+    <script language="javascript" type="text/javascript">
+      //  $(window).load(function() {
+      //      alert("load event!");
+       // });
+        
+      //  window.setTimeout("rej()",100);
+        
+        function exportToExcel(strGrid)
+        {
+            setExcelTitle(strGrid);
+            document.getElementById("<%=this.excel.ClientID %>").click();
+        }
+        
+        function setExcelTitle(strGrid)
+        {
+             var strColumn="";
+            if (document.getElementById(strGrid))
+            {
+                var len = document.getElementById(strGrid).rows[1].cells.length;
+                for (var i=1;i<len;i++)
+                {
+                    if (document.getElementById(strGrid).rows[1].cells[i].innerText.replace(" ", "") != "")
+                        strColumn += document.getElementById(strGrid).rows[1].cells[i].innerText + ",";
+                }
+                
+                document.getElementById("<%=this.qryColumn.ClientID %>").value=strColumn;
+
+            }
+            
+        }
+        
+        var hintID="";
+        function savehint(){
+            if (hintID=="")
+                return;
+
+         //   if (document.getElementById("memo").value == "")                    
+          //  {
+          //      alert("必須輸入說明!");
+          //      return;
+          //  }
+            
+            if (document.getElementById("memo").value.length>50)                    
+            {
+                alert("請限制在50個字以內!");
+                return;
+            }
+             
+                var val=encodeURI(document.getElementById("memo").value,"UTF-8")
+              //  alert(val);
+                var strSQL="insert into or3_hint(func_id,prg_id,ctrl_id,AVAILABLE,hint) select '<%=this.ProgramId %>','<%=this.pageID %>','"+ hintID +"',1,'' where  NOT EXISTS (select * from or3_hint where func_id='<%=this.ProgramId %>' and prg_id='<%=this.pageID %>' and CTRL_ID='"+ hintID +"')   update or3_hint set Hint='"+ val +"' where func_id='<%=this.ProgramId %>' and prg_id='<%=this.pageID %>' and CTRL_ID='"+ hintID +"'";
+
+                $.getJSON("DialogService.ashx?SourceTable=OR3_HINT&Item=" + strSQL, function(json) {
+
+                    if (val == "") {
+                        document.getElementById(hintID).className = document.getElementById(hintID).className.replace(" hint","");
+                        document.getElementById(hintID).title = "";
+                    }
+                    else {
+                        document.getElementById(hintID).className = document.getElementById(hintID).className + " hint";
+                        document.getElementById(hintID).title = document.getElementById("memo").value;
+                    }
+                    $('#w').window('close');
+                });            
+                
+        }
+        
+        function openhint(e){
+   
+            if(e.which == 119 && "<%=bolHint %>"=="Y")
+            {
+                hintID=$(this).attr("id");
+                $('#w').css('display','');
+                document.getElementById("memo").value=document.getElementById(hintID).title;
+                $('#w').window('open');            
+             }
+            
+        }
+        
+        $(document).ready(contentInit());
+        
+        
+        var inputs;
+        function contentInit(){
+        
+                $('.display').attr('readonly','readonly');             
+             inputs = $('select:enabled:not([readonly]),input:enabled:not([readonly=readonly]):not([readonly]):not([type=hidden]):not([type=submit]):not([type=button]):not([id*=Dialogval])')   ;
+             $('select:enabled:not([readonly]),input:enabled:not([readonly=readonly]):not([readonly]):not([type=hidden]):not([type=button]):not([type=submit]):not([id*=Dialogval])').keydown(onkeydown);
+
+             $('input[readonly=readonly]').keydown(onkeydownNo);
+            
+         // window.setTimeout('document.getElementById("modalField").style.display="";',500);
+        }
+
+        function reKeydown(){
+            
+            $('.display').attr('readonly','readonly');   
+            inputs = $('select:enabled:not([readonly]),input:enabled:not([readonly=readonly]):not([readonly]):not([type=hidden]):not([type=submit]):not([type=button]):not([id*=Dialogval])')   ;
+            $("select:enabled:not([readonly]),input:enabled:not([readonly=readonly]):not([readonly]):not([type=hidden]):not([type=button]):not([type=submit]):not([id*=Dialogval])").off("keydown", onkeydown);
+            $("input[readonly=readonly]").off("keydown", onkeydownNo);
+            
+            $('select:enabled:not([readonly]),input:enabled:not([readonly=readonly]):not([readonly]):not([type=hidden]):not([type=button]):not([type=submit]):not([id*=Dialogval])').keydown(onkeydown);
+            $('input[readonly=readonly]').keydown(onkeydownNo);
+        }
+
+        function onkeydownNo(e) {
+    //alert(e.which);
+
+        if (e.which == 13) {
+            return false;
+        }
+    }
+
+    var esExplorer = (navigator.appName == "Microsoft Internet Explorer");
+    
+    function onkeydown(e) {
+    //alert(e.which);
+    
+        if (e.which == 13) {
+    //	e.which=9; alert($(this).nextAll('input:enabled:not([readonly])')[0].attr("id"));
+            if (esExplorer) {                
+                
+                window.event.keyCode = 9;
+                e.which = 9;
+                return 9;
+            }
+            else {
+                var idx = inputs.index(this);
+
+                //  alert(inputs[idx+1].id);
+                // window.setTimeout(str, "100");
+                //inputs.eq(idx + 1).trigger('select');
+
+
+                if (inputs[idx + 1]) {
+                    if (inputs[idx + 1].id == "")
+                        idx++;
+                }
+                try {
+
+                    document.getElementById(inputs[idx + 1].id).focus();
+                }
+                catch (err) {
+                    document.getElementById(inputs[idx].id).focus();
+                }
+            }
+    return false;
+
+         
+    }
+    //			alert(e.which)
+
+    }
+    
+        function setNonSpace() {
+            var divs = document.getElementsByTagName("th");
+            
+            for (var i = 0; i < divs.length; i++) {
+
+                if (divs[i].className == "nonSpace") {
+                    if (divs[i].innerHTML.indexOf('<font color="red">*</font>') == -1 && divs[i].innerHTML.toLocaleLowerCase().indexOf('<font color=red>*</font>') == -1)
+                        divs[i].innerHTML = '<font color="red">*</font>' + divs[i].innerHTML.replace('<font color="red">*</font>', '');
+                    //alert(divs[i].innerHTML);
+                }
+            }
+        }
+        
+        //ajax 觸發事件
+        Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(BeginRequestHandler);
+
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+
+        ajaxControl = Sys.WebForms.PageRequestManager.getInstance()._asyncPostBackControlClientIDs;
+
+        //sys:AJAX Control
+        var myTimeID;
+        function BeginRequestHandler(sender, args) {
+            try {
+                window.parent.Loading();
+            }
+            catch (er) {
+                window.parent.parent.Loading();
+            }
+            finally { }
+            //myTimeID = window.setTimeout("window.parent.drawProcessing()", 1000);
+        }
+
+        //sys:Ajax Control
+
+        function EndRequestHandler(sender, args) {
+            setHeight();   
+            //window.clearTimeout(myTimeID);
+            //window.parent.closeProcessing();
+            
+            //inputs = $('select:enabled:not([readonly]),input:enabled:not([readonly]):not([type=hidden]):not([type=submit]):not([type=button]):not([id*=Dialogval])')
+            contentInit();
+            try {
+                window.parent.closeLoading();
+                
+                //$('.display').attr('readonly','readonly');             
+              //  $('select:enabled:not([readonly]),input:enabled:not([readonly]):not([type=hidden]):not([type=button]):not([type=submit]):not([id*=Dialogval])').keydown(onkeydown);     
+              //  inputs = $('select:enabled:not([readonly]),input:enabled:not([readonly]):not([type=hidden]):not([type=submit]):not([type=button]):not([id*=Dialogval])');
+            }
+            catch (er) {
+                window.parent.parent.closeLoading();
+            }
+            finally { }
+            
+            setNonSpace();
+        }
+        window.setTimeout("setHeight()", 500);
+        //window.setTimeout("alert('test')", 2000);
+
+        setNonSpace(); 
+    
+                
+    </script>
+    
+        <script language="javascript" type="text/javascript">
+    function closeLoading()
+    {
+        try{
+            window.parent.closeLoading();
+        }
+        catch(Errord){
+            //window.parent.parent.closeLoading();
+        }
+        finally{}
+    }
+
+    window.setTimeout("closeLoading()", "");
+
+
+    function pageLoad(sender, args) {
+
+        $('input<%=this.btnENABLE %>').attr('disabled', true);
+        $('input<%=this.btnENABLE %>').addClass("disabled");
+        $('input<%=this.btnENABLE %>').css("cursor", "no-drop")
+        $('input<%=this.btnENABLE %>').css("background-image", "");
+        
+        $("input:text:not([readonly])").keydown(openhint);
+        
+        try {
+            init();
+        }
+        catch (Error) { }
+        finally { }  
+    }
+    
+    
+    </script>
+    
+    </form>
+</body>
+</html>

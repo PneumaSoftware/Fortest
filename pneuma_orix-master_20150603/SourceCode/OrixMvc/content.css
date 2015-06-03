@@ -1,0 +1,286 @@
+﻿body
+{
+   
+    font-size: 12px;
+    font-family: Verdana, Tahoma, Arial, "Helvetica Neue" , Helvetica, Sans-Serif;
+    padding: 0 0 0 0;
+    color: #696969;
+    margin: 0px;
+}
+
+table th
+{
+	text-align:right;
+}
+
+
+div.searchArea table
+{
+	margin:5px;
+	width: 830px;
+	border-bottom-style: groove;
+	border-bottom-width: thin;
+	border-bottom-color: #808080;
+}
+
+div.searchArea table table
+{
+	width:auto;
+	border:none;
+}
+
+div.gridArea
+{
+	width:800px;
+}
+
+
+/*start button*/
+input.add, input.qry
+{
+    background-color: #669999;
+    background-image: url('../Images/buttonAdd.png');
+    background-repeat:repeat-x;
+    border: 1px solid #339933;
+    width: 75px;
+    color: white;
+    margin:2px;
+    padding: 4px;
+}
+
+
+input.del
+{
+    background-image: url('../Images/buttonDel.png');
+     background-repeat:repeat-x;
+    border: 1px solid #800000;
+    color: white;
+    margin:0px 0px 2px 0px;
+}
+
+input.upd
+{
+    background-image: url('../Images/buttonUpd.png');
+     background-repeat:repeat-x;
+    border: 1px solid #0066CC;
+    color: white;
+     margin:0px 0px 2px 0px;
+}
+
+input.no
+{
+    background-image: url('../Images/buttonNo.png');
+    background-repeat: repeat-x;
+    background-color: #0099CC;
+    border: 1px solid #808080;
+    color: white;
+}
+
+input.close
+{
+    background-color: #669999;
+    background-image: url('../Images/buttonNo.png');
+    background-repeat:repeat-x;
+    border: 1px solid #808080;
+    padding: 3px 0px 4px 0px;
+
+    color: white;
+    
+}
+
+
+.button
+{
+   
+    min-width:47px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    behavior: url(style/PIE.htc);    
+    cursor:pointer;
+    font-size:12px;
+}
+
+.button:hover
+{
+    filter: alpha(opacity=80); /* IE */
+    -moz-opacity: 0.8; /* Moz + FF */
+    opacity: 0.8;
+}
+
+/*end button*/
+
+/*start text*/
+input.text ,select
+{
+    padding: 3px;
+    border: 1px solid #CCCCCC;
+    width:95%;
+}
+
+input.number
+{
+    text-align:right;
+}
+
+select
+{
+    padding: 3px;
+    border: 1px solid #CCCCCC;
+    width:auto;
+}
+
+input.date
+{
+    background-image: url('../Images/date.gif');
+    background-repeat:no-repeat;
+    background-position:right center;
+    
+}
+
+input.text:hover ,select:hover
+{
+    -moz-box-shadow: 1px 1px 4px #aaaaaa;
+    -webkit-box-shadow: 1px 1px 4px #aaaaaa;
+    box-shadow: 1px 1px 4px #aaaaaa;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#aaaaaa', Direction=135, Strength=3); /* ie */
+}
+
+input.text:focus, select:focus
+{
+    outline: none;
+    -moz-box-shadow: 1px 1px 2px #aaaaaa;
+    -webkit-box-shadow: 1px 1px 2px #aaaaaa;
+    box-shadow: 1px 1px 2px #aaaaaa;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#aaaaaa', Direction=135, Strength=3); /* ie */
+    border: 1px solid #6699FF;
+}
+/*end text*/
+
+/*start grid*/
+
+#css_table {
+      display:table;
+  }
+#css_table .css_tr {
+      display: table-row;
+  }
+#css_table .css_td {
+      display: table-cell;
+  }
+  
+div.gridMain
+{
+	margin-left:10px;
+    padding: 3px;
+    margin-top: 15px;
+   /* width: 650px;*/
+    background-color: white;
+    border: 1px solid #C0C0C0;
+  /*  -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    behavior: url(styles/PIE.htc);*/
+}
+
+div.grid
+{
+    width: 100%;
+    clear: both;
+    background-color:#081b85;
+    
+   /* moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    behavior: url(styles/PIE.htc);*/
+}
+
+div.gridHead div.hrow
+{
+    line-height: 25px;
+}
+
+div.gridFooter
+{
+    height: 15px;
+}
+
+div.gridBody
+{
+  /*  scrollbar-base-color: white;
+    scrollbar-arrow-color: #527DB5;
+    scrollbar-track-color: #EFF7FF;
+    scrollbar-shadow-color: #639ACE;
+    scrollbar-lightshadow-color: #D6EBFF;
+    scrollbar-darkshadow-color: #D6EBFF;
+    scrollbar-highlight-color: #D6EBFF;
+    scrollbar-3dlight-color: #639ACE;
+	overflow-y: scroll;
+    max-height: 350px;        */
+}
+
+div.hrow,div.row, div.srow, div.arow
+{
+	float: left;	
+	overflow: hidden;
+	width:100%	
+}
+
+div.gridBody div.row
+{
+    background-color: #FFFFFF;
+    z-index:0; 
+    position:relative;
+}
+
+div.gridBody div.srow
+{
+    background-color: #d6e7ff;
+    z-index: 0;
+    position: relative;
+}
+
+div.gridHead div.arow, div.arow
+{
+    background-color: #AADDDD;
+    z-index:0; 
+    position:relative;
+}
+
+div.gridHead div.hrow div.cell
+{
+	padding: 1px 0px 2px 6px;
+	color: #E8F1FF;
+	letter-spacing: 2px;
+}
+
+
+div.cell
+{
+    float: left;
+    padding: 2px 0px 0px 6px ;
+    height:22px;
+    overflow: hidden;
+    white-space: nowrap;
+    margin:0px;
+    margin-left: 5px;
+    border-left: solid 1px #AADDDD;
+}
+
+div.seq
+{
+   
+    font-weight: bold;
+    color: #233652;
+    text-align:right;
+    border-left:none;
+}
+
+div.edit
+{
+    text-align:center;
+    vertical-align:top;
+
+}
+/* ]]> */
+/*end grid*/

@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Pattern/content.Master" AutoEventWireup="true" CodeBehind="editing.Master.cs" Inherits="OrixMvc.Pattern.editing" %>
+<%@ MasterType VirtualPath="~/Pattern/content.Master" %>
+
+<asp:Content ContentPlaceHolderID="body" runat="server" ID="myBody">
+ <asp:SqlDataSource EnableViewState="true" ID="QuerySqlDataSource" ConnectionString="<%$ ConnectionStrings:myConnectionString%>"
+            runat="server"></asp:SqlDataSource>
+            
+        
+     <div class="editingArea">
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                   <asp:Panel runat="server" ID="editingPanel">
+                        <asp:FormView runat="server" ID="masterFormView" DataSourceID="QuerySqlDataSource" OnItemCommand="DataArea_onCommand"
+                            DefaultMode="Edit">
+                            <EditItemTemplate>
+                                <asp:ContentPlaceHolder ID="editingArea" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </EditItemTemplate>
+                        </asp:FormView>
+                        <asp:ContentPlaceHolder ID="dataArea" runat="server">
+                        </asp:ContentPlaceHolder>
+                        <asp:ContentPlaceHolder ID="gridArea" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </asp:Panel>                  
+                </td>
+            </tr>
+            <tr>    
+                <td>    
+                    <asp:UpdatePanel runat="server" ID="upFunction" RenderMode="Inline" UpdateMode="Conditional">
+                        <ContentTemplate>
+                        
+                    <div class="divButton" style='float:right;display:<%=this.bolExit?"":"none"%>'>
+                        <asp:Button runat="server" ID="btnExit" CssClass="button exit" Text="返回" OnClick="Exit_Click" />
+                    </div>     
+                    <div class="divButton" style='float:right;display:<%=this.Master.nowStatus=="Del" || !this.bolSave?"none":""%>'>
+                        <asp:Button runat="server" ID="btnEdit" CssClass="button save" Text="儲存" OnCommand="Save_Click" CommandName="Save"   />
+                    </div>                     
+                    <div class="divButton" style='float:right;display:<%=this.Master.nowStatus=="Del"?"":"none"%>'>
+                        <asp:Button runat="server" ID="btnDel" CssClass="button sdel" Text="刪除" OnCommand="Save_Click" CommandName="Save" OnClientClick="return window.confirm('是否確定刪除此筆資料?')"   />                        
+                    </div>                     
+                    
+                     <asp:ContentPlaceHolder ID="functionBar" runat="server">
+                    
+                    </asp:ContentPlaceHolder>  
+                    
+                        </ContentTemplate>
+                    </asp:UpdatePanel>                           
+                    
+                </td>
+            </tr>        
+        </table>        
+    </div>
+ 
+    
+
+    
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="PopWindow" ID="myPopWindow" runat="server">
+    <asp:ContentPlaceHolder ID="PopWindow" runat="server" ></asp:ContentPlaceHolder>
+    
+    
+</asp:Content>

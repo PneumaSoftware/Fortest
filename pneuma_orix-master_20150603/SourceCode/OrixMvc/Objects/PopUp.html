@@ -1,0 +1,43 @@
+﻿
+<script language="javascript" type="text/javascript" src="ClientSrc/PopUp.js"></script>
+
+
+
+<!--  begin of draw Frame !-->
+<iframe id="divWait" src="DialogFrame.html" frameborder="0" scrolling="no"
+style="z-index: 100; 
+        width:0px;height: 0px;
+        position:absolute;
+        background-color:black;    
+        filter:alpha(opacity=60);
+        -moz-opacity:0.6;
+        opacity:0.6;" >
+</iframe>
+<!--  end of draw Frame !-->
+<!--  end of  PopUp Frame !-->
+
+<!--begin of waitting !-->
+
+<iframe id="divProc" src="DialogFrame.html" frameborder="0" scrolling="no" 
+style="z-index: 100; 
+        width:0px;height: 0px;
+        position:absolute;
+        background-color:black;    
+        filter:alpha(opacity=60);
+        -moz-opacity:0.6;
+        opacity:0.6;" >
+</iframe>
+
+
+<iframe id="divProcessing" 
+        style="visibility:hidden;position:absolute;z-index:100; background-color:transparent " 
+        name="procFrame" 
+        src="ProcessingFrame.html" 
+        allowtransparency="true"   
+        frameborder="0" 
+        scrolling="no"   >
+</iframe>
+
+
+<!--  end of waitting !-->
+  

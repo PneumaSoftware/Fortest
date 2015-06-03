@@ -1,0 +1,37 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Pattern/content.Master" AutoEventWireup="true" CodeBehind="empty.Master.cs" Inherits="OrixMvc.Pattern.empty" %>
+<%@ MasterType VirtualPath="~/Pattern/content.Master" %>
+
+<asp:Content ContentPlaceHolderID="body" runat="server" ID="myBody">
+ <asp:SqlDataSource EnableViewState="true" ID="QuerySqlDataSource" ConnectionString="<%$ ConnectionStrings:myConnectionString%>"
+            runat="server"></asp:SqlDataSource>
+            
+        
+     <div class="editingArea">
+        <table cellpadding="2" cellspacing="2">
+            <tr>
+                <td>
+                    <asp:ContentPlaceHolder ID="editingArea" runat="server">
+                    </asp:ContentPlaceHolder>                                
+                </td>
+            </tr>
+            <tr>    
+                <td style="text-align:right; vertical-align:bottom">
+                    <div class="divButton" style='float:right;display:none'>
+                        <asp:Button runat="server" ID="btnClear" CssClass="button exit" Text="取消" OnCommand="Save_Click" CommandName="Clear"   />
+                    </div>
+                    <div class="divButton" style='float:right;display:<%=this.bolSave?"":"none"%>'>
+                        <asp:Button runat="server" ID="btnEdit" CssClass="button save" Text="儲存"  OnCommand="Save_Click" CommandName="Save"   />
+                    </div>   
+                     
+                </td>
+            </tr>        
+        </table>        
+    </div>
+     
+
+    
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="PopWindow" ID="myPopWindow" runat="server">
+    <asp:ContentPlaceHolder ID="PopWindow" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
